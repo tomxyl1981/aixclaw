@@ -1,0 +1,57 @@
+# OpenClaw Workspace Security .gitignore
+
+# Credentials
+.env
+.env.local
+.env.*.local
+*_secret.py
+*_secret.json
+wechat_config.py
+credentials.json
+
+# Tokens
+token_cache.json
+*_token.json
+*_token_cache.json
+cookie*.json
+session*.json
+
+# Logs
+action_log.jsonl
+*.log
+debug/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Databases
+*.db
+*.sqlite*
+
+# Keys
+*.pem
+*.key
+*_key.json
+
+# Memory and workspace specific
+memory/*.json
+*.bak
+*.secret

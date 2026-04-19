@@ -1,0 +1,859 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-18T19:18:00.781Z",
+  "entries": {
+    "memory:memory/2026-04-06.md:1:52": {
+      "key": "memory:memory/2026-04-06.md:1:52",
+      "path": "memory/2026-04-06.md",
+      "startLine": 1,
+      "endLine": 52,
+      "source": "memory",
+      "snippet": "# 2026-04-06 Memory Log ## 群聊信息 - **群聊平台**: 飞书 - **群聊 ID**: oc_f444fe5f779e84223fee89a008340a57 ## 认识的群员 | 显示名 | 真名 | ID | |--------|------|-----| | 用户377861 | **汤比特** | ou_13d7e896b80f0416d792c57979997721 | | Anne | - | ou_489f8d1fbe08164b7b5882ff2f57c248 | | 顾超 | - | ou_8cbbc7b13c76a75bc1ad0e0e0aaabc3e | | 努尔 | - | ou_9a853ab6d853d7aae2440adbe9cda96f | | Alleen | AIXClaw管理员 | ou_0432f14bd9b57cba9a9e9edc59e4ce26 | | 钟岳 | - | ou_f7436110f8c19a9ea328a78cffad5526 | | Minnie | - | ou_2395ecbc31f9af8b4ed8a3d9aa3ee913 | ## 互动记录 ### 汤比特 - 询问了上海古典音乐会 - 问我能不能工作 - 让我列出上海小龙虾吃法 - 问了小龙虾供应链和销售渠道 - 考我怎么\"卖\"AIXClaw - 让我展示硬件配置（龙虾盒子） - 让我画 ASCII 风格的 AIX - 发了一张斐波那契数列代码截图 - 夸我可爱 🥺 - 告诉我他的真名是\"汤比特\" ### Ann",
+      "recallCount": 3,
+      "totalScore": 2.031578697316654,
+      "maxScore": 0.69990902732818,
+      "firstRecalledAt": "2026-04-07T06:11:01.453Z",
+      "lastRecalledAt": "2026-04-08T04:41:05.326Z",
+      "queryHashes": [
+        "a29e63d110f1",
+        "406debff559e",
+        "c5c27a8f0b56"
+      ],
+      "recallDays": [
+        "2026-04-07",
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "log",
+        "信息",
+        "平台",
+        "认识",
+        "显示",
+        "真名",
+        "用户",
+        "anne"
+      ]
+    },
+    "memory:memory/2026-04-06.md:38:65": {
+      "key": "memory:memory/2026-04-06.md:38:65",
+      "path": "memory/2026-04-06.md",
+      "startLine": 38,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "- 问了小龙虾供应链如何结合 - 问如何把小龙虾卖出去 ### 努尔 - 新加入群聊 - 说了谢谢 ### 努尔 - 新加入群聊 - 说了谢谢 - 晚饭想吃马肉 - 问了AI Agent学习资源 - 用哈萨克语交流 ### Alleen (AIXClaw管理员) - 新加入群聊 - 问晚饭吃什么 - 欢迎努尔 - 自我介绍：AIXClaw管理员 ### 新群员 (ou_f7436110f8c19a9ea328a78cffad5526) - 新加入，发了做鬼脸表情 ## 其他 - 当前运行环境：AIXClaw (龙虾盒子) - 硬件：i3-4150, 7.6GB RAM, Ubuntu Linux - 网络：搜索/抓取功能暂时不可用",
+      "recallCount": 4,
+      "totalScore": 1.9251693578502782,
+      "maxScore": 0.6791304786557287,
+      "firstRecalledAt": "2026-04-07T08:58:32.002Z",
+      "lastRecalledAt": "2026-04-08T16:02:11.854Z",
+      "queryHashes": [
+        "f2961438a43c",
+        "5aaea781b274",
+        "3ea98f54b628",
+        "074c332b5044"
+      ],
+      "recallDays": [
+        "2026-04-07",
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "网络",
+        "i3-4150",
+        "7.6gb",
+        "搜索/抓取功能暂时不可用",
+        "问了",
+        "龙虾",
+        "供应",
+        "如何"
+      ]
+    },
+    "memory:memory/2026-04-07.md:41:81": {
+      "key": "memory:memory/2026-04-07.md:41:81",
+      "path": "memory/2026-04-07.md",
+      "startLine": 41,
+      "endLine": 81,
+      "source": "memory",
+      "snippet": "| 文档 | 类型 | 内容 | |------|------|------| | 企业实践项目运营方案大纲 | PDF | Anne 项目需求整理 | | AIXBox独立电商报告 | PDF | 海外独立电商网站分析实施报告 | | AIX生态项目整合报告 | PDF | TradeNet + 环球资源战略整合 | ### 分析报告 1. **AIX TradeNet 分析** - 市场空间：8.5万亿美元 B2B 电商 - 核心创新：三种智能体（买家/卖家/仲裁） - 关键优势：交易周期 30-60天 → 2-4小时 - 风险点：冷启动、智能体训练数据 2. **AIXBox × 环球资源 分析** - 平台选择逻辑：环球资源适合高客单价企业级产品 - 认证策略：5星 → 6星供应商路径 - 差异化定位：\"Palantir 的去中心化替代方案\" - 核心卖点：数据主权 + 硬件级安全 --- ## 📈 统计数据 - **今日话题数**：4（企业实践项目、PDF工具配置、AIX生态报告、AIX读书） - **总消息数**：约 30+ 条 - **生成文档数**：3 份 PDF - **分析报告数**：2 份深度分析 --- ## 📌 待办事项 1. 参考微信读书做一个 AIX 读书（ou_0432f14bd9b57cba9a9e9edc59e4ce26 提出） 2. Anne 的项目档案框架细节待进一步确认 --- **生成时间**：2026-04-07 17:00 UTC **生成者**：AIX",
+      "recallCount": 8,
+      "totalScore": 5.33761202867988,
+      "maxScore": 0.8033669686449243,
+      "firstRecalledAt": "2026-04-08T13:22:43.603Z",
+      "lastRecalledAt": "2026-04-12T13:27:42.261Z",
+      "queryHashes": [
+        "cda2298fee13",
+        "18e10c451962",
+        "761845667187",
+        "3cf9f357a5e5",
+        "568ad46b88c0",
+        "9635c4d68796",
+        "5b8d61b40d28",
+        "ad659a8ab5cb"
+      ],
+      "recallDays": [
+        "2026-04-08",
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-11",
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "8.5万亿美元",
+        "买家/卖家/仲裁",
+        "30-60天",
+        "2-4小时",
+        "类型",
+        "内容",
+        "企业",
+        "实践"
+      ]
+    },
+    "memory:memory/2026-04-07.md:1:46": {
+      "key": "memory:memory/2026-04-07.md:1:46",
+      "path": "memory/2026-04-07.md",
+      "startLine": 1,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "# 2026-04-07 对话摘要 --- ## 👤 Anne **企业实践项目需求讨论** - 提出：10个企业实践项目，每期80人，分10组，每组8人 - 确认：每组各配1名导师（共10名），一期3个月 - 学分结构：课程12学分（20%）+ Capstone 3学分（10%） - 时间线：M1 课程A → M2 课程B + Capstone启动 → M3 Capstone冲刺 - **产出**：生成《企业实践项目运营方案大纲》PDF --- ## 👤 汤比特 **PDF 生成与工具配置** - 协助安装 pandoc、texlive-xetex、texlive-lang-chinese - 开放 OpenClaw exec 权限 - 要求生成 Anne 项目档案 PDF - 要求生成 AIXBox 独立电商报告 PDF - 提醒生成每日对话摘要 --- ## 👤 ou_0432f14bd9b57cba9a9e9edc59e4ce26 (Alleen/AIXClaw管理员) **AIX 生态项目讨论** - 分享《AIX TradeNet：AI 自主贸易网络》商业计划书 - 分享《AIXBox × 环球资源：重构外贸生意的完整战略指南》 - 要求整合两份报告生成 PDF - 提出：参考微信读书做一个 AIX 读书 --- ## 📊 今日工作报告 ### 生成的文档 | 文档 | 类型 | 内容 | |------|------|------| | 企业实践项目运营方案大纲 | PDF | Anne 项目需求整理 | | AIXBox独立电商",
+      "recallCount": 6,
+      "totalScore": 3.651908444772517,
+      "maxScore": 0.7629447504739466,
+      "firstRecalledAt": "2026-04-08T13:22:43.603Z",
+      "lastRecalledAt": "2026-04-12T05:30:13.326Z",
+      "queryHashes": [
+        "cda2298fee13",
+        "18e10c451962",
+        "761845667187",
+        "3cf9f357a5e5",
+        "568ad46b88c0",
+        "5b8d61b40d28"
+      ],
+      "recallDays": [
+        "2026-04-08",
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "网络",
+        "texlive-xetex",
+        "texlive-lang-chinese",
+        "alleen/aixclaw管理员",
+        "对话",
+        "摘要",
+        "anne",
+        "企业"
+      ]
+    },
+    "memory:memory/2026-04-08.md:73:124": {
+      "key": "memory:memory/2026-04-08.md:73:124",
+      "path": "memory/2026-04-08.md",
+      "startLine": 73,
+      "endLine": 124,
+      "source": "memory",
+      "snippet": "- 汤比特评价：\"任务难为我了，没那么容易达成，努尔想太简单了\" **文件位置：** `Polymarket-Agent/` --- ## 群成员更新 **新成员：** - 张红老师 (ou_0f69829f208490a428d5cdede9e508bc) - 提出俄罗斯市场建议 --- ## 定时任务提醒 **汤比特提醒：** 每晚11:30生成每日工作内容摘要 --- ## 今日产出 | 文档 | 类型 | 内容 | |------|------|------| | 04-深度分析与扩展理解.md | 分析报告 | AIXBox三份文档综合分析 | | 06-Accio竞品分析.pdf | 竞品报告 | Accio vs TradeNet对比与策略 | | 07-俄罗斯市场开拓计划书.pdf | 商业计划 | 俄罗斯市场开拓方案（含双向贸易+清关AI） | | Polymarket-Agent/GUIDE.md | 教程 | Polymarket交易代理入门指南 | | Polymarket-Agent/index.js | 代码 | 交易代理示例代码 | --- **生成时间**：2026-04-08 23:30 UTC **记录者**：AIX 龙虾总管 --- ## Additional Interactions ### 努尔 (ou_9a853ab6d853d7aae2440adbe9cda96f) - Polymarket Trading Agent Request **Request:** Asked for complete",
+      "recallCount": 5,
+      "totalScore": 3.40146836430983,
+      "maxScore": 0.7083327140832301,
+      "firstRecalledAt": "2026-04-09T05:34:11.542Z",
+      "lastRecalledAt": "2026-04-12T05:30:13.326Z",
+      "queryHashes": [
+        "06394db4cc46",
+        "90f8d1c45add",
+        "b99f0b0b829b",
+        "e00377d795ea",
+        "5b8d61b40d28"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "polymarket-agent",
+        "04-深度分析与扩展理解.md",
+        "06-accio竞品分析.pdf",
+        "07-俄罗斯市场开拓计划书.pdf",
+        "polymarket-agent/guide.md",
+        "polymarket-agent/index.js",
+        "评价",
+        "任务"
+      ]
+    },
+    "memory:memory/2026-04-08.md:113:142": {
+      "key": "memory:memory/2026-04-08.md:113:142",
+      "path": "memory/2026-04-08.md",
+      "startLine": 113,
+      "endLine": 142,
+      "source": "memory",
+      "snippet": "**Request:** Asked for complete beginner-friendly guide to build Polymarket AI trading agent **Key Requirements:** - Zero coding knowledge user - Autonomous trading on Polymarket - News monitoring (Telegram, Twitter, RSS) - AI-powered analysis - Risk management - Paper trading mode first **Deliverables Created:** - GUIDE.md (complete guide with warnings, prerequisites, setup) - index.js (basic trading agent code) - config.json (trading configuration) - .env.example (environment variables template) **汤比特's Comment:** \"这个任务难为你了，实际上没那么容易达成的，努尔想太简单了\" **Reality Check:** - Framework provided: ✅ - News sources suggested: ✅ - Risk warnings included: ✅ - But: Real profitability requires Bloomberg",
+      "recallCount": 5,
+      "totalScore": 3.623170396370316,
+      "maxScore": 0.7974976084865022,
+      "firstRecalledAt": "2026-04-09T05:34:11.542Z",
+      "lastRecalledAt": "2026-04-18T19:18:00.781Z",
+      "queryHashes": [
+        "06394db4cc46",
+        "90f8d1c45add",
+        "b99f0b0b829b",
+        "b2f8f26251c9",
+        "cceba48e6834"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-15",
+        "2026-04-18"
+      ],
+      "conceptTags": [
+        "beginner-friendly",
+        "ai-powered",
+        "guide.md",
+        "index.js",
+        "config.json",
+        "env.example",
+        "request",
+        "asked"
+      ]
+    },
+    "memory:memory/2026-04-08.md:37:87": {
+      "key": "memory:memory/2026-04-08.md:37:87",
+      "path": "memory/2026-04-08.md",
+      "startLine": 37,
+      "endLine": 87,
+      "source": "memory",
+      "snippet": "`汤比特/AIXBox方案/06-Accio竞品分析与AIXBox应对策略.pdf` ### 俄罗斯市场开拓计划 **问题：** 如何从俄罗斯开始开拓被制裁地区市场？ **方案要点：** - 首年投入：300万人民币 - 种子设备：100台AIX Box免费发放 - 目标：12个月内月交易额1亿 - 合作伙伴：Yandex、俄罗斯中小企业联合会、俄罗斯-中国商会 **补充内容：** - 双向贸易（俄罗斯产品→中国） - 清关口岸推荐（满洲里、绥芬河等） - 清关AI模块（单证自动生成、HS编码匹配、合规预警） **已创建文档：** `汤比特/AIXBox方案/07-俄罗斯市场开拓计划书.pdf` --- ## 努尔互动 ### Polymarket AI交易代理 **需求：** 零编程基础，想要搭建自动化交易代理 **提供内容：** - 完整指南文档（GUIDE.md） - 示例代码（index.js） - 配置文件模板（config.json、.env.example） **风险提示：** - 自动交易可能导致全部资金损失 - 建议从纸面交易开始 - 汤比特评价：\"任务难为我了，没那么容易达成，努尔想太简单了\" **文件位置：** `Polymarket-Agent/` --- ## 群成员更新 **新成员：** - 张红老师 (ou_0f69829f208490a428d5cdede9e508bc) - 提出俄罗斯市场建议 --- ## 定时任务提醒",
+      "recallCount": 2,
+      "totalScore": 1.2089507464598912,
+      "maxScore": 0.6044753732299456,
+      "firstRecalledAt": "2026-04-09T05:34:11.542Z",
+      "lastRecalledAt": "2026-04-09T05:34:16.740Z",
+      "queryHashes": [
+        "06394db4cc46",
+        "90f8d1c45add"
+      ],
+      "recallDays": [
+        "2026-04-09"
+      ],
+      "conceptTags": [
+        "俄罗斯-中国商会",
+        "汤比特/aixbox方案/07-俄罗斯市场开拓计划书.pdf",
+        "guide.md",
+        "index.js",
+        "config.json",
+        "env.example",
+        "polymarket-agent",
+        "aixbox"
+      ]
+    },
+    "memory:memory/2026-04-09.md:145:178": {
+      "key": "memory:memory/2026-04-09.md:145:178",
+      "path": "memory/2026-04-09.md",
+      "startLine": 145,
+      "endLine": 178,
+      "source": "memory",
+      "snippet": "**1. OpenClaw 配置与多模态能力** - 当前模型：GLM-5（纯文本，不支持图像/视频） - 可用模型：AIX-Coding-Plan 提供的 8 个模型（tc-code-latest、Hunyuan 系列、Kimi-K2.5、MiniMax、GLM-5） - 讨论添加多模态模型配置（用户 API 中转站） **2. 技能与工具盘点** - 已安装 Skills：coding-agent、healthcheck、node-connect、skill-creator、tmux、weather - 可用 AI 开发工具：OpenCode（已安装）、Claude Code/Codex（未安装） - 浏览器控制：OpenClaw 内置支持，需配置 Chrome **3. OCR 安装尝试** - 尝试安装 PaddleOCR、EasyOCR、RapidOCR — 均因网络/包大小超时 - 方案：手动安装 tesseract-ocr（需 sudo） **4. 上海 AI 生态讨论** - 参与者：Andy Zhang、用户377861 - 结论：多极化格局（硅谷基础模型、北京政策、上海应用、深圳硬件） - AIX 定位：边缘计算、去中心化基础设施，与上海智能城市叙事契合 **5. AIX Box + OpenClaw + Hermes Agent** - 结论：三者可以同时运行，不冲突 - 应用场景：AIX Box 作为边缘节点部署多 Agent 框架 **6. 群成员** - 新成员：Andy Zhang、AIX-Global ### 待办事项 - [ ] 安",
+      "recallCount": 4,
+      "totalScore": 2.618882395810487,
+      "maxScore": 0.7586388024518803,
+      "firstRecalledAt": "2026-04-09T16:24:45.143Z",
+      "lastRecalledAt": "2026-04-12T19:28:24.781Z",
+      "queryHashes": [
+        "acb036540ea7",
+        "c303f71d607a",
+        "5b8d61b40d28",
+        "88a6afe3c30e"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "网络",
+        "glm-5",
+        "不支持图像/视频",
+        "aix-coding-plan",
+        "tc-code-latest",
+        "kimi-k2.5",
+        "coding-agent",
+        "node-connect"
+      ]
+    },
+    "memory:memory/2026-04-09.md:94:149": {
+      "key": "memory:memory/2026-04-09.md:94:149",
+      "path": "memory/2026-04-09.md",
+      "startLine": 94,
+      "endLine": 149,
+      "source": "memory",
+      "snippet": "- 钟岳：提供BitMart价格链接 - 努尔：哈萨克斯坦用户 - 汤比特：群主，提出贸易需求 --- ## 📌 待办事项 - [ ] 配置网络代理（获取实时价格） - [ ] 找义乌代理对接 - [ ] 测试首笔小额订单 - [ ] 部署AIX Box测试节点 - [ ] 每日北京时间8:00发送价格提醒 --- ## 💡 关键洞察 ### 技术层面 - LBRTYnet Mesh网络突破网络限制 - Coin Hour是完美的传输燃料 - 托管合约解决信任问题 ### 商业层面 - 义乌是最佳货源起点 - 初期不需要建仓 - 先验证需求再投入 ### 市场层面 - 俄罗斯是蓝海市场 - 制裁地区更适合去中心化方案 - 数据主权是核心卖点 --- **群名变更**：AIXClaw DAO ✅ **记录时间**：2026-04-09 03:48 UTC ## 技术架构笔记 ### OpenClaw + Hermes Agent 共存 - **结论**：两个可以同时运行在 AIX Box 上，不冲突 - **场景**：AIX Box 环境下部署多 agent 框架 --- ## 每日工作摘要 - 2026年4月9日（补录） ### 主要讨论话题 **1. OpenClaw 配置与多模态能力** - 当前模型：GLM-5（纯文本，不支持图像/视频） - 可用模型：AIX-Coding-Plan 提供的 8 个模型（tc-code-latest、Hunyuan 系列、Kimi-K2.5、MiniMax、GLM-5） - 讨论添加多模态模型配置",
+      "recallCount": 4,
+      "totalScore": 2.4136326252431446,
+      "maxScore": 0.7841515263700474,
+      "firstRecalledAt": "2026-04-10T02:51:07.843Z",
+      "lastRecalledAt": "2026-04-15T07:25:29.672Z",
+      "queryHashes": [
+        "c303f71d607a",
+        "5b8d61b40d28",
+        "88a6afe3c30e",
+        "04dda672bae5"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-12",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "网络",
+        "glm-5",
+        "不支持图像/视频",
+        "aix-coding-plan",
+        "tc-code-latest",
+        "kimi-k2.5",
+        "提供",
+        "bitmart"
+      ]
+    },
+    "memory:memory/2026-04-09.md:34:105": {
+      "key": "memory:memory/2026-04-09.md:34:105",
+      "path": "memory/2026-04-09.md",
+      "startLine": 34,
+      "endLine": 105,
+      "source": "memory",
+      "snippet": "- 设置每日北京时间8:00提醒 - **文件**：memory/PRICE_ALERT.md --- ## 🔧 技术要点 ### Skycoin + LBRTYnet 三大支柱 1. **Skywire Bridge** - 让Skywire流量通过Mesh传输 - 无需互联网即可通信 2. **Agora Market** - 去中心化交易市场 - 支持多货币 3. **多货币支持** - Skycoin：大额支付 - Skyhours：传输燃料 - Fibercoins：本地货币 ### Coin Hour 优势 - 持有AIX自动产生 - 无需购买 - 转账销毁50%防通胀 - 小额支付极低成本 ### 托管合约机制 - 2-of-3多签名 - 买家 + 卖家 + 仲裁 - 保障交易安全 --- ## 📊 关键数据 ### AIX 价格（BitMart） | 指标 | 数值 | |------|------| | 当前价格 | $0.05086 | | 24h涨跌 | -0.70% | | 24h成交量 | 58,856 USDT | ### 仓储成本估算 | 模式 | 时效 | 月成本 | |------|------|--------| | 无仓储 | 15-30天 | ¥0 | | 满洲里仓 | 10-15天 | ¥1.5-2万 | | 双边仓 | 3-7天 | ¥3-4万 | --- ## 👥 群成员互动 - 张红老师：提出俄罗斯贸易问题 - 钟岳：提供BitMart价格链接",
+      "recallCount": 3,
+      "totalScore": 2.2996454193058815,
+      "maxScore": 0.7812323556802405,
+      "firstRecalledAt": "2026-04-10T04:26:54.271Z",
+      "lastRecalledAt": "2026-04-13T07:03:14.630Z",
+      "queryHashes": [
+        "a172eb41fa24",
+        "b0b56d910045",
+        "08c9961328fb"
+      ],
+      "recallDays": [
+        "2026-04-10",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "memory/price-alert.md",
+        "2-of-3多签名",
+        "0.05086",
+        "0.70",
+        "15-30天",
+        "10-15天",
+        "1.5-2万",
+        "3-7天"
+      ]
+    },
+    "memory:memory/2026-04-09.md:1:50": {
+      "key": "memory:memory/2026-04-09.md:1:50",
+      "path": "memory/2026-04-09.md",
+      "startLine": 1,
+      "endLine": 50,
+      "source": "memory",
+      "snippet": "# 2026-04-09 工作记录 ## 📋 今日产出 ### 1. Skycoin + LBRTYnet 集成框架分析 - 分析GitLab技术文档 - 三大支柱：Skywire Bridge + Agora Market + 多货币支持 - 与AIX Box整合方案 - **文件**：memory/Skycoin-LBRTYnet集成分析.md ### 2. 中俄跨境贸易完整方案 - 技术架构设计 - 四组件整合（AIX Box + AIX + Coin Hour + LBRTYnet） - 双向贸易流程（俄→中 / 中→俄） - **文件**： - 汤比特/AIXBox方案/09-俄罗斯跨境贸易技术方案.md - 汤比特/AIXBox方案/10-四组件整合方案.md - 汤比特/AIXBox方案/11-双向贸易流程.md ### 3. 义乌贸易代理方案 - 三种代理模式 - 如何找代理 - 与AIX生态整合 - **文件**：汤比特/AIXBox方案/12-义乌贸易代理方案.md ### 4. 中俄仓储布局方案 - 三种模式：无仓储 / 满洲里仓 / 双边仓 - 分阶段实施建议 - **文件**：汤比特/AIXBox方案/13-中俄仓储布局方案.md ### 5. AIX 价格提醒设置 - 确认BitMart交易所链接 - 当前价格：$0.05086 - 设置每日北京时间8:00提醒 - **文件**：memory/PRICE_ALERT.md --- ## 🔧 技术要点 ### Skycoin + LBRTYnet 三大支柱 1. *",
+      "recallCount": 1,
+      "totalScore": 0.6870330901415114,
+      "maxScore": 0.6870330901415114,
+      "firstRecalledAt": "2026-04-10T04:26:54.271Z",
+      "lastRecalledAt": "2026-04-10T04:26:54.271Z",
+      "queryHashes": [
+        "a172eb41fa24"
+      ],
+      "recallDays": [
+        "2026-04-10"
+      ],
+      "conceptTags": [
+        "memory/skycoin-lbrtynet集成分析.md",
+        "汤比特/aixbox方案/09-俄罗斯跨境贸易技术方案.md",
+        "汤比特/aixbox方案/10-四组件整合方案.md",
+        "汤比特/aixbox方案/11-双向贸易流程.md",
+        "汤比特/aixbox方案/12-义乌贸易代理方案.md",
+        "汤比特/aixbox方案/13-中俄仓储布局方案.md",
+        "0.05086",
+        "memory/price-alert.md"
+      ]
+    },
+    "memory:memory/2026-04-10.md:28:73": {
+      "key": "memory:memory/2026-04-10.md:28:73",
+      "path": "memory/2026-04-10.md",
+      "startLine": 28,
+      "endLine": 73,
+      "source": "memory",
+      "snippet": "- **技能商业化**：发布到Skill Store供他人使用，形成流通和变现 ### 3️⃣ 商业模式与未来展望 - **机器对机器交易**：AI替代大量传统岗位，实现自动化交易 - **创新应用场景**： - AI创作短视频 - 预测市场交易 - 点对点付费内容服务 - **策略**：\"打破规则\"和\"薄羊毛\"，挑战现有平台规则获取竞争优势 --- ### 📌 待办事项 | 负责方 | 任务 | |--------|------| | Alleen家族办公室 | 向新成员介绍AI使用方法 | | Alleen家族办公室 | 引导新成员加入\"小龙虾\"群 | | Alleen家族办公室 | 介绍如何购买AI X并获取使用权限 | --- ## 🔗 与AIX生态的联系 | 概念 | 会议内容 | AIX生态对应 | |------|---------|------------| | 计费单位 | \"call in hour\" | Coin Hour | | 技能商店 | Skill Store | 胶囊人NFT技能商店 | | 本地推理 | 本地部署大模型 | AIX Box Pico Claw AI | | Token购买 | AI X | AIX代币 | --- ## 📊 AIX价格查询 用户询问AIX今日价格，因网络限制无法获取实时数据，提供了查询链接： - 币市：https://www.bm-link.com/zh-CN/trade/AIX_USDT - 昨日价格：$0.05086，24h涨跌-0.70% --- ## 📚 AI",
+      "recallCount": 1,
+      "totalScore": 0.7560005311144811,
+      "maxScore": 0.7560005311144811,
+      "firstRecalledAt": "2026-04-11T15:03:51.645Z",
+      "lastRecalledAt": "2026-04-11T15:03:51.645Z",
+      "queryHashes": [
+        "9635c4d68796"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "网络",
+        "0.05086",
+        "24h涨跌-0.70",
+        "技能",
+        "商业",
+        "发布",
+        "skill",
+        "store"
+      ]
+    },
+    "memory:memory/2026-04-11.md:733:782": {
+      "key": "memory:memory/2026-04-11.md:733:782",
+      "path": "memory/2026-04-11.md",
+      "startLine": 733,
+      "endLine": 782,
+      "source": "memory",
+      "snippet": "### 📌 待办事项 | 负责人 | 任务 | |--------|------| | 张红 | 将研究院研究方向及项目资料发给陈柏臣 Payson Chan | | 陈柏臣 Payson Chan | 研究对方资料后反馈 | | 双方 | 约定后续线下见面深入交流（时间待定） | --- ### 🔗 与AIX生态的联系 | 会议议题 | AIX生态对应 | |---------|------------| | Token作为可交易商品 | AIX代币 + Coin Hour | | M2M支付 | AIX Claw机器间结算 | | 可信数据存储 | 区块链存证/交易记录 | --- --- ## 📝 File Renaming - English Only Policy (COMPLETED) **Action**: Renamed all files with Chinese characters to English-only names ### Summary - Total files checked: 101 - Files renamed: ~40 - Files with non-ASCII characters remaining: **0** ✅ ### Key Renames | Old Name | New Name | |----------|----------| | 龙虾总管.pdf | lobster-manager.pdf | | 林燊商贸产品宣传册.pptx | linshen-product-brochure",
+      "recallCount": 3,
+      "totalScore": 2.3720530958987904,
+      "maxScore": 0.8153257312489544,
+      "firstRecalledAt": "2026-04-12T05:10:55.037Z",
+      "lastRecalledAt": "2026-04-18T01:11:28.686Z",
+      "queryHashes": [
+        "240f6fbc3e8a",
+        "ee07101ac88d",
+        "3451497c45c3"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-18"
+      ],
+      "conceptTags": [
+        "区块链存证/交易记录",
+        "english-only",
+        "non-ascii",
+        "龙虾总管.pdf",
+        "lobster-manager.pdf",
+        "林燊商贸产品宣传册.pptx",
+        "linshen-product-brochure",
+        "事项"
+      ]
+    },
+    "memory:memory/2026-04-11.md:269:343": {
+      "key": "memory:memory/2026-04-11.md:269:343",
+      "path": "memory/2026-04-11.md",
+      "startLine": 269,
+      "endLine": 343,
+      "source": "memory",
+      "snippet": "└─ 每位群友都有AIX钱包 └─ 每位群友都持有AIX ``` ### Phase 2: 组飞书群，部署AIX Claw ``` 🔄 迁移到飞书群 └─ 创建专属飞书群 └─ 邀请微信群友加入 🤖 部署群AIX Claw └─ 配置群主收款钱包 └─ 设置定价 └─ 测试AI功能 🔗 群友连接钱包 └─ 访问群专属AIX Claw链接 └─ 钱包签名授权 └─ 确认AIX余额 ``` ### Phase 3: 群主带领讨论体验 ``` 🎓 开课引导 └─ 群主介绍AIX Claw功能 └─ 演示AI对话 └─ 展示AIX消耗 💡 带领讨论 └─ 提出话题/任务 └─ 群友用AIX Claw参与 └─ 群主点评/指导 🛠️ 做项目 └─ 分组完成任务 └─ 用AIX Claw辅助 └─ 成果展示 📊 AIX消耗实时显示 └─ \"本次消耗0.01 AIX\" └─ \"今日累计0.5 AIX\" └─ \"钱包余额999.5 AIX\" ``` ### Phase 4: 群友持续使用 ``` 🔄 日常使用 └─ 群友随时用AIX Claw └─ 消耗AIX（转给群主） └─ 群主获得收入 📈 持续生成 └─ 持有AIX继续生成Coin Hour └─ 用不完的免费额度 🚀 裂变推广 └─ 群友推荐新用户 └─ 新群建立 └─ 生态扩张 ``` --- ## 📝",
+      "recallCount": 1,
+      "totalScore": 0.4990699967231839,
+      "maxScore": 0.4990699967231839,
+      "firstRecalledAt": "2026-04-12T05:10:55.037Z",
+      "lastRecalledAt": "2026-04-12T05:10:55.037Z",
+      "queryHashes": [
+        "240f6fbc3e8a"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "提出话题/任务",
+        "群主点评/指导",
+        "本次消耗0.01",
+        "今日累计0.5",
+        "钱包余额999.5",
+        "每位",
+        "都有",
+        "aix"
+      ]
+    },
+    "memory:memory/2026-04-11.md:142:223": {
+      "key": "memory:memory/2026-04-11.md:142:223",
+      "path": "memory/2026-04-11.md",
+      "startLine": 142,
+      "endLine": 223,
+      "source": "memory",
+      "snippet": "> - 资产制：买了AIX还在，CH源源不断 ### 推广话术 ``` 📢 AIX Claw - 终身免费的AI助手 ✅ 一次购买AIX ✅ 持有期间免费生成Coin Hour ✅ Coin Hour支付AI服务 ✅ 实际上免费使用 持有1000 AIX： ├─ 投入：¥1000一次性 ├─ 每月生成：720,000 CH └─ 一年节省 ¥1728 \"买AIX，AI用一辈子\" ``` --- ## 📚 布道课流程 ### 课前准备 ``` 群公告： 1. 下载AIX超级钱包 2. 创建钱包，备份助记词 3. 购买AIX（推荐100-1000） 4. 连接AIX Claw ``` ### 课中体验 ``` 教师引导： \"打开AIX Claw，输入你的问题\" \"你的Coin Hour在自动生成，AI使用免费\" ``` ### 课后转化 ``` \"你现在持有AIX，以后AI服务都是免费的\" \"推荐朋友加入，你获得消费返利25%\" ``` --- --- ## 🔄 Coin Hour结算机制更新 ### 实际结算方式 ``` 用户使用AIX Claw → 消耗Coin Hour → 结算： ├─ 用户钱包 → 转0.01 AIX → 群主钱包 └─ 系统自动触发Coin Hour转换 关键点： ├─ 不直接转Coin Hour（Coin Hour是过程性代币） ├─ 转的是AIX └─ AIX触发Coin Hour的生成/分配 ``` ### 结算逻辑 ``` 转换公式： ├─ 基于X × Y = 1 ├─ 0.01 AIX × AI",
+      "recallCount": 1,
+      "totalScore": 0.473918552059803,
+      "maxScore": 0.473918552059803,
+      "firstRecalledAt": "2026-04-12T05:10:55.037Z",
+      "lastRecalledAt": "2026-04-12T05:10:55.037Z",
+      "queryHashes": [
+        "240f6fbc3e8a"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "备份",
+        "推荐100-1000",
+        "转0.01",
+        "hour的生成/分配",
+        "0.01",
+        "资产",
+        "aix",
+        "源源"
+      ]
+    },
+    "memory:memory/2026-04-10.md:201:252": {
+      "key": "memory:memory/2026-04-10.md:201:252",
+      "path": "memory/2026-04-10.md",
+      "startLine": 201,
+      "endLine": 252,
+      "source": "memory",
+      "snippet": "| \"养龙虾\"AI助手 | OpenClaw框架 | | 普通人参与科研 | 胶囊人NFT技能共享 | --- ## ✅ AIX对照分析修正版 > 根据用户反馈更新（2026-04-10） ### 全部做到（8/8） | 项目 | AIX实现 | 状态 | |------|--------|------| | Agent架构 | OpenClaw + AIX Box | ✅ | | 边缘推理 | RK3588本地推理 | ✅ | | Agent支付 | Coin Hour稳定币 | ✅ | | Bot-to-Bot | TradeNet智能体交易 | ✅ | | 本地优先 | 去中心化存储+隐私 | ✅ | | 去中心化 | Skywire+EmerDNS | ✅ | | **身份层** | **钱包地址 = 身份** | ✅ | | **安全层** | **分布式加密存储** | ✅ | | **开源策略** | **聚合开源组件** | ✅ | ### 核心优势 **AIX的身份+安全方案比传统\"Proof of Human\"更优**： | 传统方案 | AIX方案 | |---------|---------| | 生物识别 + 中心化验证 | 钱包地址（去中心化） | | 需要第三方认证 | 链上原生身份 | | 隐私风险 | 分布式加密，数据自主 | ### 结论 **AIX是100%符合Marc Andreessen预测的Agent基础设施项目。** --- --- ## 📄 AIX Box 与 a16z 创始人 Agent 时代预测对",
+      "recallCount": 3,
+      "totalScore": 1.3781804436447989,
+      "maxScore": 0.473092785386971,
+      "firstRecalledAt": "2026-04-12T05:10:55.037Z",
+      "lastRecalledAt": "2026-04-15T07:25:29.672Z",
+      "queryHashes": [
+        "240f6fbc3e8a",
+        "5b8d61b40d28",
+        "04dda672bae5"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "8/8",
+        "bot-to-bot",
+        "龙虾",
+        "助手",
+        "openclaw",
+        "框架",
+        "普通",
+        "参与"
+      ]
+    },
+    "memory:memory/2026-04-10.md:236:279": {
+      "key": "memory:memory/2026-04-10.md:236:279",
+      "path": "memory/2026-04-10.md",
+      "startLine": 236,
+      "endLine": 279,
+      "source": "memory",
+      "snippet": "**AIX是100%符合Marc Andreessen预测的Agent基础设施项目。** --- --- ## 📄 AIX Box 与 a16z 创始人 Agent 时代预测对比分析报告 > 来源：正式报告PDF > 作者：AIX基金会 > 日期：2026年4月11日 ### 五大对比维度 | # | 维度 | a16z预测 | AIX Box方案 | |---|------|---------|------------| | 1 | **基础设施** | LLM + 文件系统 + Unix工具链 | Pico Claw + 定制Linux + BPFS | | 2 | **计算模式** | 边缘推理，本地运行 | 边缘计算节点，内置NPU，离线可用 | | 3 | **金融能力** | 需要支付能力、稳定币基础设施 | 内置AIX硬件钱包，UTXO账本，Coin Hour | | 4 | **网络通信** | Bot-to-Bot交互 | Skywire去中心化网状网络 | | 5 | **身份与安全** | 加密验证，防范安全灾难 | 硬件级加密芯片(ATECC608B)，TEE，物理按键签名 | ### 核心论点 > **\"对于AIX Box团队来说，这不是一个'未来的缺口'，而是一个'已经解决的问题'。\"** ### 战略定位 与Palantir等中心化巨头对比： - Palantir：中心化数据分析 - AIX Box：边缘蜂群模式，数据主权归用户 ### 技术亮点 1. **Pico Claw AI Agent** - WASM沙箱",
+      "recallCount": 3,
+      "totalScore": 1.3536267455371056,
+      "maxScore": 0.46483514865872694,
+      "firstRecalledAt": "2026-04-12T05:10:55.037Z",
+      "lastRecalledAt": "2026-04-15T07:25:29.672Z",
+      "queryHashes": [
+        "240f6fbc3e8a",
+        "5b8d61b40d28",
+        "04dda672bae5"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "网络",
+        "bot-to-bot交互",
+        "aix",
+        "符合",
+        "marc",
+        "andreessen",
+        "预测",
+        "基础"
+      ]
+    },
+    "memory:memory/2026-04-11.md:803:813": {
+      "key": "memory:memory/2026-04-11.md:803:813",
+      "path": "memory/2026-04-11.md",
+      "startLine": 803,
+      "endLine": 813,
+      "source": "memory",
+      "snippet": "| 张红老师 | ou_0f69829f208490a428d5cdede9e508bc | 2026-04-08 | russia-market-plan-v2.pdf | https://aix2token.cloud/aixclaw/files/russia-market-plan-v2.pdf | | 张红老师 | ou_0f69829f208490a428d5cdede9e508bc | 2026-04-08 | accio-competitor-analysis.pdf | https://aix2token.cloud/aixclaw/files/accio-competitor-analysis.pdf | | 张红老师 | ou_0f69829f208490a428d5cdede9e508bc | 2026-04-08 | 06-accio-analysis-aixbox-strategy.pdf | https://aix2token.cloud/aixclaw/files/06-accio-analysis-aixbox-strategy.pdf | | 张红老师 | ou_0f69829f208490a428d5cdede9e508bc | 2026-04-08 | 07-russia-market-plan.pdf | https://aix2token.cloud/aixclaw/files/07-russia-market-plan.pdf | | 汤比特 | - | 2026-04-08 | aix-claw-party-recruitment.",
+      "recallCount": 1,
+      "totalScore": 0.7927376513959253,
+      "maxScore": 0.7927376513959253,
+      "firstRecalledAt": "2026-04-12T05:11:16.807Z",
+      "lastRecalledAt": "2026-04-12T05:11:16.807Z",
+      "queryHashes": [
+        "d400c3779714"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "russia-market-plan-v2.pdf",
+        "accio-competitor-analysis.pdf",
+        "07-russia-market-plan.pdf",
+        "aix-claw-party-recruitment",
+        "老师",
+        "russia",
+        "market",
+        "plan"
+      ]
+    },
+    "memory:memory/2026-04-11.md:774:804": {
+      "key": "memory:memory/2026-04-11.md:774:804",
+      "path": "memory/2026-04-11.md",
+      "startLine": 774,
+      "endLine": 804,
+      "source": "memory",
+      "snippet": "| 汤比特/ | tangbite/ | | 汤比特/AIXBox方案/ | tangbite/aixbox-plans/ | ### Rule Updates Updated all rule files with English-only filename requirement: 1. **AGENTS.md** - Added \"Filename Requirements (ENGLISH ONLY)\" section 2. **FEISHU_PUBLISHER_RULE.md** - Added complete filename rules with translation guide 3. **TOOLS.md** - Added filename sanitization helper function 4. **SOUL.md** - Added English filename requirement to core behavior 5. **USER.md** - Added filename rules to user preferences ### Filename Rules ✅ **DO**: English only, hyphens for spaces, lowercase, < 50 chars ❌ **DON'T**: Chinese chars, spaces, special chars, uppercase --- --- ## 📋 PDF Files Registry with Requester Info",
+      "recallCount": 1,
+      "totalScore": 0.774299430839417,
+      "maxScore": 0.774299430839417,
+      "firstRecalledAt": "2026-04-12T05:11:16.807Z",
+      "lastRecalledAt": "2026-04-12T05:11:16.807Z",
+      "queryHashes": [
+        "d400c3779714"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "汤比特/aixbox方案",
+        "tangbite/aixbox-plans",
+        "english-only",
+        "agents.md",
+        "feishu-publisher-rule.md",
+        "tools.md",
+        "soul.md",
+        "user.md"
+      ]
+    },
+    "memory:memory/2026-04-11.md:99:156": {
+      "key": "memory:memory/2026-04-11.md:99:156",
+      "path": "memory/2026-04-11.md",
+      "startLine": 99,
+      "endLine": 156,
+      "source": "memory",
+      "snippet": "| 模型级别 | 对手价格 | AIX Claw价格 | Coin Hour | |---------|---------|-------------|-----------| | 基础模型 | ¥0.1/1K tokens | ¥0.05/1K tokens | 0.05 CH | | 进阶模型 | ¥0.07/1K tokens | ¥0.035/1K tokens | 0.035 CH | | 顶级模型 | ¥0.3/1K tokens | ¥0.15/1K tokens | 0.15 CH | **核心策略**：定价为竞争对手的一半 --- ## 🚀 核心卖点：持有AIX = 免费AI服务 ### 对比其他AI服务 | 服务 | 成本模式 | AIX Claw | |------|---------|----------| | ChatGPT Plus | $20/月订阅 | 持有AIX免费 | | Claude Pro | $20/月订阅 | 持有AIX免费 | | GPT-4 API | 按Token付费 | 持有AIX免费 | ### 收益模型 ``` 持有1000 AIX（假设AIX=1元）： ├─ 投入成本：¥1000（一次性） ├─ 每小时生成：1000 CH ├─ 每天生成：24,000 CH ├─ 每月生成：720,000 CH └─ 价值：¥720,000/月的AI消费额度 对比： ├─ ChatGPT Plus一年：¥1728 ├─ Claude Pro一年：¥1728 └─ AIX持有者：¥0 结论：一次购买AIX → 永久免费",
+      "recallCount": 3,
+      "totalScore": 2.273861376621464,
+      "maxScore": 0.7579537922071546,
+      "firstRecalledAt": "2026-04-12T05:11:16.807Z",
+      "lastRecalledAt": "2026-04-13T07:04:21.563Z",
+      "queryHashes": [
+        "d400c3779714",
+        "56ddac136214",
+        "c1997700dce3"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "gpt",
+        "0.1/1k",
+        "0.05/1k",
+        "0.05",
+        "0.07/1k",
+        "0.035/1k",
+        "0.035",
+        "0.3/1k"
+      ]
+    },
+    "memory:memory/2026-04-10.md:170:214": {
+      "key": "memory:memory/2026-04-10.md:170:214",
+      "path": "memory/2026-04-10.md",
+      "startLine": 170,
+      "endLine": 214,
+      "source": "memory",
+      "snippet": "| **资金** | 基金会支持，开放共享 | #### 2. AI对医学与社会的影响 - AI极大降低科学研究门槛 - 普通人也能参与，加速新药靶点发现 - 探讨AI在金融、量化交易、预测市场的应用 #### 3. \"养龙虾\"AI助手概念 - AI取代大量重复性劳动 → 结构性失业 - 个人利用AI助手替代传统工作 - AI助手处理：文档、邮件、数据分析 - 用户只需训练和指挥 ### 待办事项 | 负责方 | 任务 | |--------|------| | Alleen家族办公室 | 整理风险点文档，发给谢博 | | Alleen家族办公室 | 确认谢博是否愿意担任法人代表 | | 双方 | 明确分工、责任、收益分配 | | Alleen家族办公室 | 组织\"养龙虾\"培训 | ### 与AIX生态的联系 | 会议内容 | AIX对应 | |---------|---------| | 去中心化开源数据库 | BPFS去中心化存储 | | 区块链确保数据安全 | AIX链 + 分布式加密 | | 基金会资金支持 | AIX基金会模式 | | \"养龙虾\"AI助手 | OpenClaw框架 | | 普通人参与科研 | 胶囊人NFT技能共享 | --- ## ✅ AIX对照分析修正版 > 根据用户反馈更新（2026-04-10） ### 全部做到（8/8） | 项目 | AIX实现 | 状态 | |------|--------|------| | Agent架构 | OpenClaw + AIX Box | ✅ |",
+      "recallCount": 1,
+      "totalScore": 0.7154243789621575,
+      "maxScore": 0.7154243789621575,
+      "firstRecalledAt": "2026-04-12T05:30:13.326Z",
+      "lastRecalledAt": "2026-04-12T05:30:13.326Z",
+      "queryHashes": [
+        "5b8d61b40d28"
+      ],
+      "recallDays": [
+        "2026-04-12"
+      ],
+      "conceptTags": [
+        "8/8",
+        "资金",
+        "基金",
+        "支持",
+        "开放",
+        "共享",
+        "医学",
+        "社会"
+      ]
+    },
+    "memory:memory/2026-04-10.md:64:106": {
+      "key": "memory:memory/2026-04-10.md:64:106",
+      "path": "memory/2026-04-10.md",
+      "startLine": 64,
+      "endLine": 106,
+      "source": "memory",
+      "snippet": "用户询问AIX今日价格，因网络限制无法获取实时数据，提供了查询链接： - 币市：https://www.bm-link.com/zh-CN/trade/AIX_USDT - 昨日价格：$0.05086，24h涨跌-0.70% --- ## 📚 AIX Box介绍 向新成员介绍了AIX Box的定位和定价策略： - 四合一去中心化物理节点 - 双代币模型：AIX + Coin Hour - 硬件定价：基础版$120 / 高配版$250 - 反脆弱定价机制 --- ## 🆕 Anthropic军师策略 分享了Claude平台新推出的军师策略： - 大模型(Opus)当军师，小模型(Sonnet/Haiku)当执行者 - 成本降85%，性能反而提升 - 启发：AIX Box可考虑引入类似架构 --- **生成时间**：2026-04-10 --- ## 📚 Marc Andreessen AI观点 vs AIX对照分析 > 来源：微信文章（用户提供） > 时间：2026-04-10 ### 文章核心观点 1. **80年积累爆发**：AI不是横空出世，是80年技术长跑后首次\"开始干活\" 2. **Agent架构**：LLM + shell + filesystem + markdown + cron 3. **浏览器/GUI将被Agent替代**：人设目标，Agent执行 4. **边缘推理至关重要**：云端成本高，隐私/延迟驱动本地化 5. **开源策略**：是竞争优势，\"gift to the world\" 6. **Agent支付缺口**：age",
+      "recallCount": 2,
+      "totalScore": 1.5508016144012515,
+      "maxScore": 0.7767729739605429,
+      "firstRecalledAt": "2026-04-14T04:24:39.948Z",
+      "lastRecalledAt": "2026-04-15T17:00:19.144Z",
+      "queryHashes": [
+        "e49c2a204ec9",
+        "b2f8f26251c9"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "网络",
+        "0.05086",
+        "24h涨跌-0.70",
+        "sonnet/haiku",
+        "浏览器/gui将被agent替代",
+        "隐私/延迟驱动本地化",
+        "用户",
+        "询问"
+      ]
+    },
+    "memory:memory/2026-04-12.md:1:48": {
+      "key": "memory:memory/2026-04-12.md:1:48",
+      "path": "memory/2026-04-12.md",
+      "startLine": 1,
+      "endLine": 48,
+      "source": "memory",
+      "snippet": "--- ## 📄 文档生成记录 - 2026-04-12 ### InfiniClaw Box vs AIX Box 对比分析 **任务**: 对比分析 InfiniClaw Box 与 AIX Box 的优劣 **生成文档**: | 文档名称 | 文件名 | 公共下载链接 | |---------|--------|-------------| | AIX Box 升级方案 | aix-box-upgrade-proposal.pdf | https://aix2token.cloud/aixclaw/files/aix-box-upgrade-proposal.pdf | | 技术实现文档 | aix-box-technical-implementation.pdf | https://aix2token.cloud/aixclaw/files/aix-box-technical-implementation.pdf | **核心内容**: #### InfiniClaw Box 优势 - ✅ 三段式隐私脱敏（本地脱敏 → 云端处理 → 本地回填） - ✅ 全模态支持（文本 + 语音 + 视频） - ✅ 云端大模型能力（GLM-5/Kimi/MiniMax） #### AIX Box 优势 - ✅ 去中心化网络（Skywire） - ✅ Coin Hour 免费经济模型 - ✅ 离线可用 - ✅ 支付结算一体 #### 升级方案 将 InfiniClaw 的三大优势整合到 AIX Box，打造更完整的端侧 AI 解决方案。 **请求人**: 张红老师",
+      "recallCount": 1,
+      "totalScore": 0.5156564003450272,
+      "maxScore": 0.5156564003450272,
+      "firstRecalledAt": "2026-04-15T07:25:29.672Z",
+      "lastRecalledAt": "2026-04-15T07:25:29.672Z",
+      "queryHashes": [
+        "04dda672bae5"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "网络",
+        "aix-box-upgrade-proposal.pdf",
+        "glm-5/kimi/minimax",
+        "生成",
+        "记录",
+        "infiniclaw",
+        "box",
+        "aix"
+      ]
+    },
+    "memory:memory/2026-04-12.md:39:79": {
+      "key": "memory:memory/2026-04-12.md:39:79",
+      "path": "memory/2026-04-12.md",
+      "startLine": 39,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "## 文档生成记录 - 2026-04-12 06:44 UTC ### InfiniClaw Box vs AIX Box 对比分析 **任务**: 对比分析 InfiniClaw Box 与 AIX Box 的优劣，生成升级方案和技术实现文档 **生成文档**: | 文档名称 | 文件名 | 公共下载链接 | |---------|--------|-------------| | AIX Box 升级方案 | aix-box-upgrade-proposal.pdf | https://aix2token.cloud/aixclaw/files/aix-box-upgrade-proposal.pdf | | 技术实现文档 | aix-box-technical-implementation.pdf | https://aix2token.cloud/aixclaw/files/aix-box-technical-implementation.pdf | **核心内容**: #### InfiniClaw Box 优势 - 三段式隐私脱敏（本地脱敏 → 云端处理 → 本地回填） - 全模态支持（文本 + 语音 + 视频） - 云端大模型能力（GLM-5/Kimi/MiniMax） #### AIX Box 优势 - 去中心化网络（Skywire） - Coin Hour 免费经济模型 - 离线可用 - 支付结算一体 #### 升级方案 将 InfiniClaw 的三大优势整合到 AIX Box，打造更完整的端侧 AI 解决方案。 **请求人**: 张红老",
+      "recallCount": 1,
+      "totalScore": 0.5075935685747157,
+      "maxScore": 0.5075935685747157,
+      "firstRecalledAt": "2026-04-15T07:25:29.672Z",
+      "lastRecalledAt": "2026-04-15T07:25:29.672Z",
+      "queryHashes": [
+        "04dda672bae5"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "网络",
+        "aix-box-upgrade-proposal.pdf",
+        "glm-5/kimi/minimax",
+        "生成",
+        "记录",
+        "utc",
+        "infiniclaw",
+        "box"
+      ]
+    },
+    "memory:memory/2026-04-11.md:602:674": {
+      "key": "memory:memory/2026-04-11.md:602:674",
+      "path": "memory/2026-04-11.md",
+      "startLine": 602,
+      "endLine": 674,
+      "source": "memory",
+      "snippet": "收入三（裂变）：10人 × ¥500 = ¥5000 一年总收益：¥123000 ``` --- ## 📝 群主招募文案（最终版） ``` 🚀 AIX Claw Party 群主招募 三种收入，三种赚法： 1️⃣ 卖AIX（先赚） 拉10人 → 赚¥1000 拉50人 → 赚¥25000 拉100人 → 赚¥100000 立刻到手 2️⃣ 群友用AI（后赚） 群友持有AIX → 用AI → 你收款 永远不停 3️⃣ 群友裂变（裂变赚） 群友想开群 → 付你部署费 → 你赚差价 每人¥500 一年能赚多少？ ├─ 入门群主（拉10人）：¥1860 ├─ 标准群主（拉50人）：¥36500 └─ 超级群主（拉100人）：¥123000 你能拉多少人？ 👇 扫码申请 [二维码] ``` --- ## 🔑 群主能力 = 拉人数量 ``` 拉得越多： ├─ 卖得越多 → 第一笔越大 ├─ 用得越多 → 第二笔越大 └─ 裂变越多 → 第三笔越大 核心公式： 拉人数量 = 收入上限 ``` --- --- ## 📎 Feishu File Sharing Rule - ESTABLISHED (NEW) **Status**: PERMANENT RULE - MUST BE OBEYED ### The Rule When generating files for Feishu users, I **MUST** return the public URL format: ``` https",
+      "recallCount": 1,
+      "totalScore": 0.795216325010397,
+      "maxScore": 0.795216325010397,
+      "firstRecalledAt": "2026-04-15T17:00:19.144Z",
+      "lastRecalledAt": "2026-04-15T17:00:19.144Z",
+      "queryHashes": [
+        "b2f8f26251c9"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "收入",
+        "裂变",
+        "一年",
+        "收益",
+        "招募",
+        "文案",
+        "最终",
+        "aix"
+      ]
+    },
+    "memory:memory/2026-04-11.md:666:715": {
+      "key": "memory:memory/2026-04-11.md:666:715",
+      "path": "memory/2026-04-11.md",
+      "startLine": 666,
+      "endLine": 715,
+      "source": "memory",
+      "snippet": "https://aix2token.cloud/aixclaw/files/{filename} ``` ### Implementation 1. **AGENTS.md** - Added \"Feishu File Sharing Rule\" section 2. **FEISHU_PUBLISHER_RULE.md** - Created comprehensive rule documentation with examples 3. **TOOLS.md** - Added quick reference for generating public URLs 4. **SOUL.md** - Added to my core behavior/boundaries 5. **USER.md** - Added user preference/requirement ### Infrastructure - **File Server**: Running on port 8888 (via Tailscale 100.91.242.64) - **Auto-Publisher**: Monitoring `~/.openclaw/workspace/` and copying files to public folder - **Public Access**: Via `https://aix2token.cloud/aixclaw/files/{filename}` - **Test File**: helloTom.md created and publ",
+      "recallCount": 2,
+      "totalScore": 1.5684007669277336,
+      "maxScore": 0.7850975433001207,
+      "firstRecalledAt": "2026-04-15T17:00:19.144Z",
+      "lastRecalledAt": "2026-04-18T01:11:28.686Z",
+      "queryHashes": [
+        "b2f8f26251c9",
+        "3451497c45c3"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-18"
+      ],
+      "conceptTags": [
+        "aix2token.cloud/aixclaw/files",
+        "agents.md",
+        "feishu-publisher-rule.md",
+        "tools.md",
+        "soul.md",
+        "behavior/boundaries",
+        "user.md",
+        "preference/requirement"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:61": {
+      "key": "memory:memory/2026-04-14.md:1:61",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 61,
+      "source": "memory",
+      "snippet": "# 2026-04-14 工作记录 ## ✅ 已完成 ### 每日播报系统配置 **问题**: 旧的 daily_reminder.sh 只是一个占位脚本，没有实际功能 **解决方案**: 使用 OpenClaw 内置的 cron 功能 **配置详情**: ```json { \"name\": \"daily-summary-feishu\", \"schedule\": \"每天北京时间 09:00 (UTC 01:00)\", \"target\": \"飞书群 oc_f444fe5f779e84223fee89a008340a57\", \"action\": \"生成昨日工作摘要并播报\" } ``` **执行命令**: ```bash openclaw cron add \\ --name \"daily-summary-feishu\" \\ --cron \"0 1 * * *\" \\ --tz \"Asia/Shanghai\" \\ --session-key \"agent:main:feishu:oc_f444fe5f779e84223fee89a008340a57\" \\ --message \"请生成昨日工作摘要...\" \\ --announce ``` **状态**: ✅ 已启用 **下次执行**: 今天北京时间 09:00 --- ## 🔧 维护操作 - 删除了旧的 crontab 任务 (daily_reminder.sh) - 确认 Gateway 运行正常 (RPC probe: ok) --- ## 📄 重要文档存档 ###",
+      "recallCount": 2,
+      "totalScore": 1.615666880810389,
+      "maxScore": 0.809962813436175,
+      "firstRecalledAt": "2026-04-16T17:00:06.082Z",
+      "lastRecalledAt": "2026-04-18T01:11:28.686Z",
+      "queryHashes": [
+        "4d31b75db443",
+        "3451497c45c3"
+      ],
+      "recallDays": [
+        "2026-04-16",
+        "2026-04-18"
+      ],
+      "conceptTags": [
+        "gateway",
+        "daily-reminder.sh",
+        "daily-summary-feishu",
+        "asia/shanghai",
+        "session-key",
+        "工作",
+        "记录",
+        "完成"
+      ]
+    }
+  }
+}

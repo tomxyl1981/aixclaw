@@ -1,0 +1,41 @@
+{
+  "name": "feishu-file-publisher",
+  "description": "Auto-publish Feishu-generated files to public file server (MANDATORY RULE)",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "auto-publish-files",
+      "description": "All files generated from Feishu user interactions MUST be published to the file server",
+      "trigger": "file:created",
+      "condition": {
+        "source": "feishu",
+        "workspacePath": "~/.openclaw/workspace"
+      },
+      "action": {
+        "type": "publish",
+        "destination": "https://aix2token.cloud/aixclaw",
+        "copyTo": "/home/xiaoyao/openclaw-server/public"
+      },
+      "priority": "critical",
+      "enabled": true
+    }
+  ],
+  "fileServer": {
+    "publicUrl": "https://aix2token.cloud/aixclaw",
+    "internalUrl": "http://100.91.242.64:8888",
+    "publicFolder": "/home/xiaoyao/openclaw-server/public",
+    "tailscaleIp": "100.91.242.64",
+    "port": 8888
+  },
+  "patterns": {
+    "include": [
+      "*.pdf", "*.docx", "*.xlsx", "*.pptx", "*.md",
+      "*.png", "*.jpg", "*.jpeg", "*.gif", "*.mp4",
+      "*.mp3", "*.zip", "*.csv", "*.json", "*.txt"
+    ],
+    "exclude": [
+      ".git/**", ".openclaw/**", "memory/**", "skills/**",
+      "node_modules/**", "*.tmp", "*.temp"
+    ]
+  }
+}
