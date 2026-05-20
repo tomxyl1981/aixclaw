@@ -294,6 +294,14 @@
 4. AIX Box广告（被动）
 
 
+### Semble代码搜索分析（2026-05-20 新增）
+详见：`knowledge/semble-code-search-analysis.md`
+
+**项目**：MinishLab/semble | Stars: 3,115
+**核心能力**：98% Token节省（vs grep+read）| CPU运行 | MCP一行集成
+**对AIX帮助**：本地代码搜索 → Coding Agent优化 → 与AgentMemory.dev/RAG-Anything形成三件套
+
+
 ### RAG-Anything分析（2026-05-20 新增）
 
 详见：`knowledge/rag-anything-analysis.md`
