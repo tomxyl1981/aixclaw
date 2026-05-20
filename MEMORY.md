@@ -294,6 +294,15 @@
 4. AIX Box广告（被动）
 
 
+### MemEye多模态记忆评估（2026-05-20 新增）
+详见：`knowledge/memeye-multimodal-memory-analysis.md`
+
+**论文**：arxiv 2605.15128 | 来源：罗格斯/圣母/普林斯顿/AMD
+**核心发现**：双重瓶颈 — 文本派记不住细节（X轴），视觉派理不清时间（Y轴）
+**架构建议**：混合架构 = 原生图像 + 结构化状态 + 时间感知
+**AIX应用**：AIX Box记忆模块设计 + Coin Hour计费场景
+
+
 ### Semble代码搜索分析（2026-05-20 新增）
 详见：`knowledge/semble-code-search-analysis.md`
 
