@@ -122,3 +122,45 @@ claude mcp add semble -s user -- uvx --from "semble[mcp]" semble
 ---
 
 *分析日期：2026-05-20*
+
+---
+
+## 七、实测数据验证（2026-05-20补充）
+
+> 来源：用户377861实测
+> 测试场景：GBrain代码库（~300个TypeScript文件）
+
+### 测试结果
+
+| 指标 | grep + read_file | Semble |
+|------|-----------------|--------|
+| **首次搜索** | 即时（<1s） | 首次需下载模型（~2min） |
+| **二次搜索** | 即时 | 10秒（索引已缓存） |
+| **Token消耗** | ~63,600 | ~500 |
+| **节省比例** | 基准 | **98%** |
+| **结果质量** | 184个匹配 | 5个语义相关片段 |
+| **理解能力** | ❌ 无语义 | ✅ 自然语言意图 |
+
+### 典型案例
+
+**查询**："vector indexing for semantic search"
+
+**Semble返回**：
+1. `src/core/search/vector.ts` - 向量搜索核心
+2. `src/core/search/hybrid.ts` - 混合搜索缓存
+3. `src/core/search/query-cache.ts` - 语义查询缓存
+4. `src/core/migrate.ts` - 缓存表迁移
+5. `src/core/types.ts` - 类型定义
+
+### 注意事项
+
+| 问题 | 解决方案 |
+|------|----------|
+| 首次下载模型（~100MB） | 国内配置 `HF_ENDPOINT=https://hf-mirror.com` |
+| MCP集成 | 需要 `/reload-mcp` 才能生效 |
+| 适用场景 | 理解代码库、探索性搜索、大型项目导航 |
+| 不适用场景 | 精确字符串匹配、简单查找（如TODO注释） |
+
+---
+
+*实测日期：2026-05-20*
