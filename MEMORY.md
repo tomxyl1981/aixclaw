@@ -332,3 +332,17 @@
 
 **与ViMax协同**：同实验室项目，天然集成。知识库 → ViMax Agent调用 → 一致性保证的AI漫剧
 
+
+### 音乐节策划（2026-05-20新增）
+
+详见：`knowledge/naye-village-music-festival-plan.md`
+
+**核心理念**：民族音乐（壮族/苗族）+ 非遗传承 + 西洋交响形式 + AI音乐制作
+
+**AI工具选择**：
+- Suno/Udio：AI编曲（10-50 CH/曲目）
+- MusicGen：本地生成（AIX Box，免费）
+- Stable Audio：环境音效（5-20 CH/音效）
+
+**商业模式**：票务40% + 直播20% + NFT 15% + 赞助15% + 非遗衍生10%
+
