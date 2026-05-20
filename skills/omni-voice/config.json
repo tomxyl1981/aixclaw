@@ -1,0 +1,47 @@
+{
+  "service": {
+    "host": "localhost",
+    "port": 8080,
+    "coin_hour_enabled": true,
+    "coin_hour_price_per_minute": 1
+  },
+  "models": {
+    "tts_model": "omni-voice-base-v1",
+    "clone_model": "omni-voice-clone-v1",
+    "language_support": 646
+  },
+  "storage": {
+    "voice_clones_path": "./clones",
+    "max_clones_per_user": 10,
+    "retention_days": 365
+  },
+  "aix_integration": {
+    "utxo_ledger_url": "http://localhost:8545",
+    "auto_billing": true,
+    "default_voice": "aix-tutor-default"
+  },
+  "pricing": {
+    "tts_per_minute": 1,
+    "clone_per_voice": 50,
+    "video_dub_per_minute": 1,
+    "api_call": 0.1
+  },
+  "tutor_bots": {
+    "sovereignty": {
+      "voice_id": "aix-tutor-sovereignty",
+      "emotion_profile": "warm_authoritative"
+    },
+    "tech": {
+      "voice_id": "aix-tutor-tech",
+      "emotion_profile": "enthusiastic"
+    },
+    "product": {
+      "voice_id": "aix-tutor-product",
+      "emotion_profile": "neutral_professional"
+    },
+    "business": {
+      "voice_id": "aix-tutor-business",
+      "emotion_profile": "confident_clear"
+    }
+  }
+}
