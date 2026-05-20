@@ -164,3 +164,58 @@ claude mcp add semble -s user -- uvx --from "semble[mcp]" semble
 ---
 
 *实测日期：2026-05-20*
+
+---
+
+## 八、生产环境部署记录（2026-05-20）
+
+> 部署者：用户377861
+> 环境：中国（需配置镜像）
+
+### 安装状态
+
+| 组件 | 状态 | 路径/版本 |
+|------|------|----------|
+| Semble CLI | ✅ | `~/.venv/bin/semble` |
+| MCP Server | ✅ | `~/.hermes/config.yaml` |
+| 嵌入模型 | ✅ | potion-code-16M (63MB, 已缓存) |
+| Tree-sitter解析器 | ✅ | 306语言包 |
+
+### 实测性能（GBrain项目）
+
+```
+项目规模：~500文件
+
+首次索引：13.10秒
+查询延迟：~10ms（注意：是毫秒，不是秒！）
+
+查询示例：
+  "skill resolver dispatch" → check-resolvable.ts:243
+  "MCP server tools"        → mcp/server.ts:30
+  "knowledge graph link"    → operations.ts:717
+  "minion queue"            → minions/queue.ts:1
+```
+
+### 中国环境配置
+
+| 配置项 | 值 | 用途 |
+|--------|-----|------|
+| `HF_ENDPOINT` | `https://hf-mirror.com` | HuggingFace镜像 |
+| Tree-sitter | 手动下载 | `~/.cache/tree-sitter-language-pack/v1.6.2/libs/` |
+
+### 使用方式
+
+**CLI模式**
+```bash
+export HF_ENDPOINT=https://hf-mirror.com
+semble search "your query" ./your-project --top-k 5
+```
+
+**MCP模式**
+- 工具：`semble_search`, `semble_find_related`
+- 自动缓存索引
+- 本地路径监听文件变化自动重建
+
+---
+
+*部署日期：2026-05-20*

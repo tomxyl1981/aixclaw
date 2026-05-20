@@ -306,8 +306,8 @@
 ### Semble代码搜索分析（2026-05-20 新增）
 详见：`knowledge/semble-code-search-analysis.md`
 
-**项目**：MinishLab/semble | Stars: 3,115
-**核心能力**：98% Token节省（vs grep+read）| CPU运行 | MCP一行集成
+**项目**：MinishLab/semble | Stars: 3,115 | ✅ 已部署
+**核心能力**：98% Token节省（vs grep+read）| CPU运行 | MCP已集成到Hermes | 查询延迟~10ms
 **对AIX帮助**：本地代码搜索 → Coding Agent优化 → 与AgentMemory.dev/RAG-Anything形成三件套
 
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-20T01:19:14.237Z",
+  "updatedAt": "2026-05-20T07:25:36.448Z",
   "entries": {
     "memory:memory/2026-04-06.md:1:52": {
       "key": "memory:memory/2026-04-06.md:1:52",
@@ -6017,18 +6017,20 @@
       "endLine": 880,
       "source": "memory",
       "snippet": "- 实时、可解释、贴近当前文件系统 - 避免索引同步和敏感代码外传问题 **Harness八层架构**（与AIX对应）： | Harness层 | 主要职责 | AIX对应 | |-----------|---------|--------| | Search Harness | 搜索文件、符号、日志 | Browser Harness + Deep Code CLI | | Read Harness | 控制读取粒度、避免上下文爆炸 | Graphify知识图谱 | | Execution Harness | 运行测试、脚本、本地服务 | Hermes Agent + Mano-P | | Memory Harness | 保存项目约定、架构决策 | OpenWolf + Avatar NFT | | Compaction Harness | 长任务中压缩历史 | Deep Agents上下文管理 | | Isolation Harness | subagent/sandbox隔离任务和风险 | AIX Box硬件沙箱 | | Policy Harness | 管权限、审批、危险命令 | Harness拦截层 | | Evaluation Harness | 用测试、线上信号评估质量 | UTXO账本审计 | **Vibe Coding vs Agentic Engineering**： | 维度 | Vibe Coding | Agentic Engineering | |------|-------------|---------------------| | 关",
-      "recallCount": 2,
-      "totalScore": 1.6588337511693463,
+      "recallCount": 3,
+      "totalScore": 2.453790341455531,
       "maxScore": 0.8388203264112105,
       "firstRecalledAt": "2026-05-17T19:57:49.263Z",
-      "lastRecalledAt": "2026-05-18T13:04:43.008Z",
+      "lastRecalledAt": "2026-05-20T07:25:36.448Z",
       "queryHashes": [
         "9edb7dbab64a",
-        "6fcc7b8c60ae"
+        "6fcc7b8c60ae",
+        "082195a4719b"
       ],
       "recallDays": [
         "2026-05-17",
-        "2026-05-18"
+        "2026-05-18",
+        "2026-05-20"
       ],
       "conceptTags": [
         "mano-p",
@@ -6184,6 +6186,64 @@
         "应用",
         "自动",
         "理财"
+      ]
+    },
+    "memory:memory/2026-05-08.md:826:861": {
+      "key": "memory:memory/2026-05-08.md:826:861",
+      "path": "memory/2026-05-08.md",
+      "startLine": 826,
+      "endLine": 861,
+      "source": "memory",
+      "snippet": "- 硬件级治理=比传统科层更强的约束 - 不是更自由，而是更清晰的权责结构 --- *最后更新：2026-05-08* --- ### AI编程架构迁移：从代码检索到上下文操作（用户377861分享） **来源**：若飞，架构师，2026-05-08 **核心论点**： > AI编程的重心，正在从\"模型能不能写代码\"，慢慢挪到\"Agent能不能在真实工程里自己找上下文、动手执行、验证结果，并把过程收住\"。 **关键转变**： | 旧范式 | 新范式 | |--------|--------| | 模型拿到上下文后生成答案 | Agent在工程现场里持续操作上下文 | | Prompt -> Code | Intent -> Search -> Read -> Plan -> Edit -> Run -> Observe -> Repair -> Verify | | 上下文是系统提前准备好的材料 | 上下文是Agent可以操作的对象 | | RAG预处理 | Agentic Search实时探索 | **Agentic Search核心**： - 不是\"RAG已死\"，而是搜索变成Agent推理过程中的动作 - 代码库自带高精度锚点（函数名、路径、错误栈、配置项） - 实时、可解释、贴近当前文件系统 - 避免索引同步和敏感代码外传问题 **Harness八层架构**（与AIX对应）： | Harness层 | 主要职责 | AIX对应 | |-----------|---------|--------| | Search Harness | 搜索文件、符号、",
+      "recallCount": 1,
+      "totalScore": 0.848892759439045,
+      "maxScore": 0.848892759439045,
+      "firstRecalledAt": "2026-05-20T07:25:36.448Z",
+      "lastRecalledAt": "2026-05-20T07:25:36.448Z",
+      "queryHashes": [
+        "082195a4719b"
+      ],
+      "recallDays": [
+        "2026-05-20"
+      ],
+      "conceptTags": [
+        "硬件",
+        "治理",
+        "传统",
+        "约束",
+        "不是",
+        "自由",
+        "而是",
+        "清晰"
+      ]
+    },
+    "memory:memory/2026-04-19.md:441:478": {
+      "key": "memory:memory/2026-04-19.md:441:478",
+      "path": "memory/2026-04-19.md",
+      "startLine": 441,
+      "endLine": 478,
+      "source": "memory",
+      "snippet": "> \"云端API是大电网，AIX Box是家用发电机——电网不稳定的地方，自己发电更划算。\" 生成文件：aix-box-moat-analysis.md ### OpenResearcher 与 AIX 融合 Jane分享：OpenResearcher - 完全开源深度研究智能体（TIGER-AI-Lab，664 Star） 核心创新： - 1500万篇文档离线搜索引擎（11B-token语料库） - 三个操作原语：Search/Open/Find（像人类学者浏览） - 9.7万条深度研究轨迹（100+轮对话） - 30B模型超越GPT-4.1、Claude-Opus-4（54.8%准确率） - 已被NVIDIA Nemotron采用 与AIX契合点： 1. **离线检索** → AIX Box本地搜索引擎（零API成本） 2. **Search/Open/Find** → Skill化操作原语（0 Coin Hour离线） 3. **轨迹合成** → 那耶村深度研究训练数据 4. **模型蒸馏** → 120B→30B→7B-13B部署到Box 那耶村场景： 用户问\"梯田米最佳种植时间\" → 本地Search → Open那耶村农业知识 → Find关键信息 → 综合答案 协同项目： - Firecrawl抓取 → OpenResearcher索引 → 本地检索 - 预测市场：深度研究数据源 - SpecEyes：快系统本地检索，慢系统深度推理 孵化项目扩展到21个（+AIX Box离线搜索引擎） 金句： > \"OpenResearcher让深度研究不再依",
+      "recallCount": 1,
+      "totalScore": 0.8357672895174242,
+      "maxScore": 0.8357672895174242,
+      "firstRecalledAt": "2026-05-20T07:25:36.448Z",
+      "lastRecalledAt": "2026-05-20T07:25:36.448Z",
+      "queryHashes": [
+        "082195a4719b"
+      ],
+      "recallDays": [
+        "2026-05-20"
+      ],
+      "conceptTags": [
+        "gpt",
+        "aix-box-moat-analysis.md",
+        "tiger-ai-lab",
+        "11b-token语料库",
+        "search/open/find",
+        "9.7万条深度研究轨迹",
+        "30b模型超越gpt-4.1",
+        "claude-opus-4"
       ]
     }
   }
