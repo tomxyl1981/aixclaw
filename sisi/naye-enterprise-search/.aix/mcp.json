@@ -1,0 +1,48 @@
+{
+  "mcpServers": {
+    "memory": {
+      "name": "Memory Storage",
+      "type": "local_filesystem",
+      "root_path": "~/.openclaw/workspace/memory",
+      "file_pattern": "*.md",
+      "index_fields": ["date", "topic", "entities"],
+      "enabled": true
+    },
+    "knowledge": {
+      "name": "Knowledge Base",
+      "type": "local_filesystem",
+      "root_path": "~/.openclaw/workspace/knowledge",
+      "file_pattern": "*.md",
+      "index_fields": ["category", "tags", "project"],
+      "enabled": true
+    },
+    "workspace": {
+      "name": "Workspace Documents",
+      "type": "local_filesystem",
+      "root_path": "~/.openclaw/workspace",
+      "file_pattern": "*.md",
+      "exclude_patterns": ["memory/**", "knowledge/**", ".git/**"],
+      "enabled": true
+    },
+    "feishu_history": {
+      "name": "Feishu Conversations",
+      "type": "chat_export",
+      "source": "feishu_group_export",
+      "group_id": "oc_f444fe5f779e84223fee89a008340a57",
+      "enabled": true
+    },
+    "codegraph": {
+      "name": "Code Index",
+      "type": "code_index",
+      "index_path": "~/.openclaw/workspace/.codegraph",
+      "enabled": true
+    }
+  },
+  "search_settings": {
+    "default_limit": 10,
+    "max_results": 50,
+    "snippet_length": 300,
+    "highlight_matches": true,
+    "cross_source_dedup": true
+  }
+}

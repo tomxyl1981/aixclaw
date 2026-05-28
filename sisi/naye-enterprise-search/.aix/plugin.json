@@ -1,0 +1,24 @@
+{
+  "name": "naye-enterprise-search",
+  "description": "那耶村知识库统一搜索 - 搜索MEMORY.md、knowledge目录、工作文档和飞书对话",
+  "version": "1.0.0",
+  "author": "AIX Team",
+  "license": "MIT",
+  "type": "search",
+  "min_aix_version": "2.0.0",
+  "entry_points": {
+    "commands": [
+      "/naye:search",
+      "/naye:digest"
+    ],
+    "skills": [
+      "search-strategy",
+      "source-management", 
+      "knowledge-synthesis"
+    ]
+  },
+  "pricing": {
+    "search": "0.1 CH",
+    "digest": "0.5 CH"
+  }
+}
