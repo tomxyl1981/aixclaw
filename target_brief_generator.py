@@ -40,7 +40,7 @@ except Exception:
     _HAS_ENTROPY = False
 
 
-REPORT_VERSION = "1.1.0"
+REPORT_VERSION = "1.3.0"  # A3 证据溯源清单页 (2026-07-31)
 REPORT_DATE = datetime.datetime.now().strftime("%Y-%m-%d %H:%M UTC")
 
 
@@ -1036,7 +1036,22 @@ def generate_brief(
     except Exception as _e_cross:
         pass  # 跨维度嵌入分析为非关键特性，静默跳过
 
-    brief.append('')
+    # ════════════════════════════════════════════
+    # Phase III-E: 证据溯源清单页 (A3, 2026-07-31 张红批准)
+    # 每个结论可追溯到 PMID / 数据库 ID / 链接
+    # 实现: evidence_ledger.render_evidence_ledger (独立模块, 单元测试覆盖)
+    # ════════════════════════════════════════════
+    try:
+        from evidence_ledger import render_evidence_ledger as _render_ledger
+        _ledger_lines = _render_ledger(evidence_rows)
+        brief.extend(_ledger_lines)
+        brief.append('')
+    except Exception as _e_ledger:
+        # 降级: 模块不可用时给出提示, 不影响简报主体
+        brief.append(_section("附录、证据溯源清单（可核验）", 2))
+        brief.append(f"> ⚠ 证据清单渲染失败: {_e_ledger}\n")
+        brief.append('')
+
     return '\n'.join(brief)
 
 # ── CLI 入口 ──
