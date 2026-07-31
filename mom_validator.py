@@ -239,12 +239,12 @@ class MoMValidator:
                 consensus = "low"
 
             # ── 熵态指标（邓煜框架 / P1 2026-07-31）──
-        # 自然态熵: 分数分散度 → 1 - (1 - spread) = spread
-        natural_entropy = round(spread, 3)
-        # 压熵后共识: avg 越接近 1 越低熵
-        pressure_ratio = round(avg / (1.0 + spread) - 0.5, 3) if spread > 0 else 0.0
+            # 自然态熵: 分数分散度 → 1 - (1 - spread) = spread
+            natural_entropy = round(spread, 3)
+            # 压熵后共识: avg 越接近 1 越低熵
+            pressure_ratio = round(avg / (1.0 + spread) - 0.5, 3) if spread > 0 else 0.0
 
-        return {
+            return {
                 "consensus": consensus,
                 "avg_score": round(avg, 3),
                 "score_range": (min(scores), max(scores)),
@@ -260,7 +260,7 @@ class MoMValidator:
                 ] if spread > 0.3 else [],
             }
 
-        elif domain == "opc_pharma":
+        if domain == "opc_pharma":
             verdicts = []
             for name, r in results.items():
                 if isinstance(r, dict):
