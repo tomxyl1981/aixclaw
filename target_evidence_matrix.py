@@ -606,27 +606,45 @@ class TargetEvidenceMatrix:
         EvidenceDimension.PATHWAY,
     }
 
+    # ── Kakeya 强度权重映射 (2026-07-31) ──
+    # 独立于 data_weight (后者衡量数据质量: 样本量/p值/年份)
+    # 强度权重衡量生物信号强度, 分母 0.45 = 7×MAX(0.08) - 0.01*5 + 0.06
+    _STRENGTH_WEIGHT = {
+        EvidenceStrength.P_VALUE_LT_5E8: 0.08,
+        EvidenceStrength.P_VALUE_LT_1E5: 0.06,
+        EvidenceStrength.P_VALUE_LT_0_01: 0.04,
+        EvidenceStrength.AUC_GT_0_8: 0.07,
+        EvidenceStrength.AUC_GT_0_6: 0.05,
+        EvidenceStrength.LOG2FC_GT_1: 0.07,
+        EvidenceStrength.LOG2FC_GT_0_5: 0.05,
+        EvidenceStrength.NOMINAL: 0.03,
+        EvidenceStrength.WEAK: 0.02,
+        EvidenceStrength.NOT_SIGNIFICANT: 0.01,
+        EvidenceStrength.UNKNOWN: 0.02,
+    }
+    _STRENGTH_DENOM = sum(_STRENGTH_WEIGHT.values())
+
     def compute_weighted_confidence(self) -> dict:
         """
-        基于数据驱动权重的综合置信度评分。
+        基于 Kakeya 双因子评分 (2026-07-31 张红批准):
+        80% 维度覆盖分 + 20% 证据强度分 + 调整(一致性/矛盾/缺失)
 
-        替代原有的 flat scoring。
+        双因子评分:
+          1. 维度覆盖分 = min(n_present_dims / 4.0, 1.0)  [Kakeya 冗余性: >=4 封顶]
+          2. 证据强度分 = min(sum(strength_weights) / _STRENGTH_DENOM, 1.0)
+             [强度权重独立于 data_weight, 后者衡量数据质量]
+          3. 综合 = 0.80 * 覆盖分 + 0.20 * 强度分 + 调整项
 
-        在调用前，确认每条 EvidenceRow 有 data_weight 字段；
-        如没有则自动从 row_weight.compute_data_weight 获取。
-
-        权重逻辑 (张红 2026-07-30 批准):
-          1. 每条证据行权重 = row_weight.compute_data_weight(row)
-          2. overall = sum(w * row.weight) / sum(w)
-          3. 横向一致性：同维度同方向多条 +0.15 boost
-          4. 矛盾扣分：同维度不同方向 -0.3 * min_weight_ratio
-          5. 缺失扣分：预计应有维度缺失，-0.1 每个
+        调整项:
+          - 一致性: 同维度同方向 >=2 条证据 +0.05 boost
+          - 矛盾: 每条矛盾记录(含跨维度) -0.10 固定扣分
+          - 缺失: 每个高优先级缺失维度 -0.10 扣分
 
         Returns:
             dict with keys: weighted_score, weights_raw, weights_normalized,
                             num_rows, dimension_coverage, contradictions
         """
-        from collections import Counter, defaultdict
+        from collections import defaultdict
 
         if not self.rows:
             return {
@@ -638,33 +656,39 @@ class TargetEvidenceMatrix:
                 "contradictions": [],
             }
 
-        # ── Step 1: 确保每条行有 data_weight ──
+        # ── Step 1: 双权重计算 ──
+        # data_weight: 数据质量 (样本量/p值/年份/效应量)
+        # strength_weight: 生物学信号强度 (独立于数据质量)
         raw_weights = []
+        strength_weights = []
         for r in self.rows:
             w = compute_data_weight(r)
-            r.data_weight = w  # 动态设置，dataclass 允许
+            r.data_weight = w
             raw_weights.append(w)
+            sw = self._STRENGTH_WEIGHT.get(r.strength, 0.02)
+            strength_weights.append(sw)
 
-        # ── Step 2: 综合置信度 = 加权平均 ──
-        # w = data_weight（质量权重），同时也作为信号值
-        # overall = sum(w^2) / sum(w)
-        total_weight = sum(raw_weights)
-        weighted_sum = sum(w * w for w in raw_weights)
-        weighted_score = weighted_sum / total_weight if total_weight > 0 else 0.0
+        # ── Step 2: 双因子评分 ──
+        present_dims = {r.dimension for r in self.rows}
+        n_present = len(present_dims)
+        coverage_score = min(n_present / 4.0, 1.0)  # 80% 权重
 
-        # ── Step 3: 归一化权重 ──
+        total_strength = sum(strength_weights)
+        intensity_score = min(total_strength / self._STRENGTH_DENOM, 1.0)  # 20% 权重
+
+        dual_score = 0.80 * coverage_score + 0.20 * intensity_score
+
+        # ── Step 3: 归一化权重 (仅用于分析) ──
         max_w = max(raw_weights) if raw_weights else 1.0
         normalized = [w / max_w for w in raw_weights] if max_w > 0 else []
 
-        # ── Step 4: 维度覆盖率 ──
-        present_dims = {r.dimension for r in self.rows}
+        # ── Step 4: 维度覆盖率字典 (仅用于分析) ──
         dim_coverage = {}
         for dim in sorted(self._EXPECTED_DIMENSIONS, key=lambda d: d.value):
             dim_coverage[dim.value] = dim in present_dims
         coverage_pct = sum(1 for v in dim_coverage.values() if v) / len(dim_coverage) if dim_coverage else 0.0
 
         # ── Step 5: 横向一致性 boost ──
-        # 同维度同方向多条证据 → +0.15
         dim_dir_counts = defaultdict(int)
         for r in self.rows:
             dim_dir_counts[(r.dimension, r.direction)] += 1
@@ -673,37 +697,22 @@ class TargetEvidenceMatrix:
         dim_dir_detail = {}
         for (dim, dirc), cnt in dim_dir_counts.items():
             if cnt >= 2:
-                consistency_boost += 0.05  # 2026-07-30: 收窄系数 (原0.15→0.05)
+                consistency_boost += 0.05
                 dim_dir_detail[f"{dim.value}/{dirc.value}"] = cnt
 
-        # ── Step 6: 矛盾扣分 ──
-        # 同维度不同方向 → -0.3 * min_weight_ratio
+        # ── Step 6: 矛盾扣分 (固定 -0.10) ──
         contradiction_penalty = 0.0
         contradiction_details = []
         for c in self.contradictions:
-            # 计算该维度内最小/最大权重比
-            dim_rows = [
-                r for r in self.rows
-                if r.dimension == c.dimension_a
-            ]
-            if dim_rows:
-                dim_weights = [getattr(r, "data_weight", compute_data_weight(r)) for r in dim_rows]
-                min_w = min(dim_weights)
-                max_w = max(dim_weights)
-                ratio = min_w / max_w if max_w > 0 else 0.0
-                penalty = 0.3 * ratio
-                contradiction_penalty += penalty
-                contradiction_details.append({
-                    "dimension_a": c.dimension_a.value,
-                    "dimension_b": c.dimension_b.value,
-                    "description": c.description,
-                    "min_weight_ratio": round(ratio, 4),
-                    "penalty": round(penalty, 4),
-                })
+            contradiction_penalty += 0.10
+            contradiction_details.append({
+                "dimension_a": c.dimension_a.value,
+                "dimension_b": c.dimension_b.value,
+                "description": c.description,
+                "penalty": 0.10,
+            })
 
         # ── Step 7: 缺失扣分 ──
-        # 已有 detect_missing() 填充 self.missing_evidence
-        # 对预计应有的维度缺失扣分
         missing_penalty = 0.0
         missing_details = []
         for me in self.missing_evidence:
@@ -716,15 +725,25 @@ class TargetEvidenceMatrix:
                     "penalty": 0.1,
                 })
 
-        # ── Step 8: 综合得分（含调整） ──
-        final_score = weighted_score + consistency_boost - contradiction_penalty - missing_penalty
-        final_score = max(0.0, min(final_score, 1.0))  # 钳制到 [0, 1]
+        # ── Step 8: 综合得分 ──
+        final_score = dual_score + consistency_boost - contradiction_penalty - missing_penalty
+        final_score = max(0.0, min(final_score, 1.0))
 
         return {
             "weighted_score": round(final_score, 4),
-            "weighted_score_raw": round(weighted_score, 4),
+            "weighted_score_raw": round(dual_score, 4),
+            "kakeya": {
+                "coverage_score": round(coverage_score, 4),
+                "intensity_score": round(intensity_score, 4),
+                "n_present_dims": n_present,
+                "n_strength_rows": len(strength_weights),
+                "total_strength": round(total_strength, 4),
+                "strength_denom": round(self._STRENGTH_DENOM, 4),
+                "dual_raw": round(dual_score, 4),
+            },
             "weights_raw": [round(w, 4) for w in raw_weights],
             "weights_normalized": [round(n, 4) for n in normalized],
+            "strength_weights": [round(w, 4) for w in strength_weights],
             "num_rows": len(self.rows),
             "dimension_coverage": {
                 "dimensions": dim_coverage,
@@ -798,7 +817,115 @@ class TargetEvidenceMatrix:
                             f"{existing.direction.value} vs {new_row.direction.value}"
                         )
                     ))
-    
+
+        # ── 跨维度矛盾检测 (Kakeya: 不同维度方向不一致) ──
+        self._check_cross_for_new_row(new_row)
+
+    # ── 跨维度矛盾模式库 ──
+    _CROSS_PATTERNS = [
+        # scRNA 上调 + animal KO = 表达未必致病
+        (EvidenceDimension.SCRNA_SEQ, [EvidenceDirection.UPREGULATED],
+         EvidenceDimension.ANIMAL_MODEL, [EvidenceDirection.LOSS_OF_FUNCTION],
+         "scRNA上调提示高表达致病，但动物模型KO无保护(甚至加重): 表达变化可能是代偿性",
+         0.06),
+        # scRNA 下调 + animal GOF = 表达未必保护
+        (EvidenceDimension.SCRNA_SEQ, [EvidenceDirection.DOWNREGULATED],
+         EvidenceDimension.ANIMAL_MODEL, [EvidenceDirection.GAIN_OF_FUNCTION],
+         "scRNA下调提示低表达保护，但动物模型GOF无致病: 表达变化可能是代偿性",
+         0.06),
+        # GWAS 风险 + scRNA 相反方向 = 遗传风险与表达趋势不一致
+        (EvidenceDimension.GWAS, [EvidenceDirection.ASSOCIATED],
+         EvidenceDimension.SCRNA_SEQ, [EvidenceDirection.DOWNREGULATED],
+         "GWAS关联风险方向与scRNA表达方向相反: 风险位点可能通过间接机制作用",
+         0.06),
+        # GWAS 关联 + eQTL 方向相反 = 遗传机制不一致
+        (EvidenceDimension.GWAS, [EvidenceDirection.ASSOCIATED],
+         EvidenceDimension.EQTL, [EvidenceDirection.DOWNREGULATED],
+         "GWAS关联与eQTL表达方向相反: 风险位点通过其他机制发挥作用",
+         0.06),
+    ]
+
+    @staticmethod
+    def _check_cross_contradictions(rows: list) -> None:
+        """检查所有已知跨维度矛盾模式并添加到 contradictions。
+        应在全部行添加后调用一次，也可逐行增量调用。
+        """
+        from copy import deepcopy
+        # 已检测过的模式缓存 (用 frozenset 作 key)
+        found = set()
+        for dim1, dirs1, dim2, dirs2, desc, min_sw in TargetEvidenceMatrix._CROSS_PATTERNS:
+            rows1 = [r for r in rows
+                     if r.dimension == dim1 and r.direction in dirs1
+                     and TargetEvidenceMatrix._STRENGTH_WEIGHT.get(r.strength, 0) >= min_sw]
+            rows2 = [r for r in rows
+                     if r.dimension == dim2 and r.direction in dirs2
+                     and TargetEvidenceMatrix._STRENGTH_WEIGHT.get(r.strength, 0) >= min_sw]
+            if rows1 and rows2:
+                key = frozenset({id(rows1[0]), id(rows2[0])})
+                if key not in found:
+                    found.add(key)
+                    # 寻找是否已存在类似矛盾
+                    already = any(
+                        c.dimension_a == dim1 and c.dimension_b == dim2
+                        for c in rows1[0]._parent_contradictions if hasattr(c, '_parent_contradictions')
+                    ) if hasattr(rows1[0], '_parent_contradictions') else False
+                    if not already:
+                        tc = TargetContradiction(
+                            dimension_a=dim1,
+                            dimension_b=dim2,
+                            description=(
+                                f"{rows1[0].target_gene}: {dim1.value} {rows1[0].direction.value} + "
+                                f"{dim2.value} {rows2[0].direction.value}: {desc}"
+                            )
+                        )
+                        # 直接添加到所属矩阵的 contradictions 列表
+                        # 通过扫描 rows 的父级矩阵
+                        parent = getattr(rows1[0], '_parent_matrix', None)
+                        if parent:
+                            parent.contradictions.append(tc)
+
+    def _check_cross_for_new_row(self, new_row: EvidenceRow):
+        """添加新行时检测跨维度矛盾。"""
+        for dim1, dirs1, dim2, dirs2, desc, min_sw in self._CROSS_PATTERNS:
+            # 新行必须匹配其中一个维度
+            if new_row.dimension not in (dim1, dim2):
+                continue
+            if new_row.direction not in (dirs1 if new_row.dimension == dim1 else dirs2):
+                continue
+            if self._STRENGTH_WEIGHT.get(new_row.strength, 0) < min_sw:
+                continue
+            # 找到匹配的另一维度行
+            other_dim = dim2 if new_row.dimension == dim1 else dim1
+            other_dirs = dirs2 if new_row.dimension == dim1 else dirs1
+            for existing in self.rows:
+                if existing is new_row:
+                    continue
+                if existing.dimension != other_dim or existing.direction not in other_dirs:
+                    continue
+                if self._STRENGTH_WEIGHT.get(existing.strength, 0) < min_sw:
+                    continue
+                # 检查是否已存在相同矛盾
+                if any(c.dimension_a == dim1 and c.dimension_b == dim2
+                       or c.dimension_a == dim2 and c.dimension_b == dim1
+                       for c in self.contradictions):
+                    continue
+                # 确定各维度方向
+                if new_row.dimension == dim1:
+                    rd1, rd2 = new_row.direction.value, existing.direction.value
+                else:
+                    rd1, rd2 = existing.direction.value, new_row.direction.value
+                self.contradictions.append(TargetContradiction(
+                    dimension_a=dim1,
+                    dimension_b=dim2,
+                    description=(
+                        f"{new_row.target_gene}: {dim1.value}[{rd1}] + {dim2.value}[{rd2}]: {desc}"
+                    )
+                ))
+
+    def _get_strength_weight(self, row: EvidenceRow) -> float:
+        cls = type(self)
+        return cls._STRENGTH_WEIGHT.get(row.strength, 0.02)
+
     def detect_missing(self):
         """
         检测缺失证据维度。
