@@ -1,0 +1,270 @@
+[ocr] full-scan: 4 file(s) discovered, reviewing 4 in /home/xiaoyao/.openclaw/workspace-dev
+[ocr] estimated cost: ~4 file(s), est. 325K input + 23K output ≈ 349K total tokens (rough; actual reported after run)
+[ocr] scan dispatch: 1 batch(es) by by-language strategy
+[ocr]   ▶ file_read file_path=chembl_connector.py start_line=28 end_line=34
+[ocr]   ✔ file_read (0s)
+[ocr]   ▶ code_search search_text=POTENCY_BANDS
+[ocr]   ✔ code_search (10.01s)
+[ocr]   ▶ file_read start_line=95 end_line=155 file_path=evidence_pubmed_connector.py
+[ocr]   ✔ file_read (0s)
+[ocr]   ▶ code_search search_text=POTENCY_BANDS file_patterns=[chembl_connector.py]
+[ocr]   ✔ code_search (19ms)
+[ocr]   ▶ code_search search_text=max_phase file_patterns=[chembl_connector.py]
+[ocr]   ✔ code_search (11ms)
+[ocr]   ▶ code_comment "target_evidence_matrix.py"
+[ocr]   ✔ code_comment (1ms)
+[ocr]   ▶ code_comment "evidence_pubmed_connector.py"
+[ocr]   ✔ code_comment (2ms)
+[ocr]   ▶ code_comment "mom_validator.py"
+[ocr]   ✔ code_comment (1ms)
+[ocr]   ▶ code_comment "chembl_connector.py"
+[ocr]   ✔ code_comment (1ms)
+[ocr]   ▶ code_comment "chembl_connector.py"
+[ocr]   ✔ code_comment (0s)
+[ocr]   ▶ code_comment "target_evidence_matrix.py"
+[ocr]   ✔ code_comment (3ms)
+[ocr] scan dedup batch #0: 23 → 21 comments
+[ocr] Summary: 4 file(s) reviewed, 21 comment(s), ~277868 token(s) used (input: ~255667, output: ~22201), cache(read: ~146816, write: ~0), 59s elapsed
+
+─── target_evidence_matrix.py:551-552 ───
+[bug · high] The `SafetyContraindication` class is missing the `@dataclass` decorator, yet it uses
+`field(default_factory=...)` and its `to_dict()` method calls `asdict(self)`. Since this is not a
+dataclass, `asdict()` will raise `TypeError` when called, and instances have no per-instance
+attributes (only class-level annotations). This class was clearly intended to be decorated with
+`@dataclass`. Add the decorator before the class definition.
+
+
+
+─── target_evidence_matrix.py:1406-1408 ───
+[bug · high] The safety ceiling assignment logic is incorrect. When a severe SAE or animal-model SAE
+exists, `m.safety_ceiling = 0.20` is set, but then the `has_safety_dim` block unconditionally
+overwrites it with `0.80` whenever any SAFETY-dimension row exists. Because the SAE rows themselves
+are usually SAFETY/ANIMAL_MODEL dimension rows, the strict 0.20 limit is effectively neutralized.
+The stricter ceiling should take precedence (e.g., guard the `has_safety_dim` assignment with `if
+m.safety_ceiling is None:`).
+
+
+
+─── evidence_pubmed_connector.py:32-33 ───
+[bug · high] Network errors are entirely unhandled. urllib.request.urlopen can raise URLError,
+HTTPError (e.g. NCBI rate-limiting / 4xx), and socket timeout. Since this adapter is the data source
+for the whole build pipeline, a transient network failure will propagate as an uncaught exception
+out of search_and_fetch / build_from_pubmed, crashing the run and leaving partial state. Wrap the
+call and map HTTPError/URLError/timeout to a clear, catchable error (e.g. raise a dedicated
+PubMedConnectionError)** or at minimum log and return empty results.
+
+
+
+─── evidence_pubmed_connector.py:45-45 ───
+[bug · high] ET.fromstring(xml_data) can raise xml.etree.ElementTree.ParseError on
+malformed/non-abstract XML (and resp.read() returns bytes, which fromstring accepts). NCBI can
+return error pages or empty bodies on transient failures; an uncaught ParseError here would abort
+the entire fetch step. Wrap the parse and handle the failure (skip the batch or re-raise as a
+controlled error) rather than letting it crash build_from_pubmed.
+
+
+
+─── evidence_pubmed_connector.py:186-186 ───
+[bug · medium] When no direction keyword is matched, direction stays EvidenceDirection.UNKNOWN but
+the code silently converts it to "up" before building the row. This fabricates an upregulation claim
+from evidence that actually says nothing about direction, producing misleading evidence rows in the
+matrix. Pass the real direction (or "unknown") instead of defaulting to "up".
+
+
+
+─── evidence_pubmed_connector.py:116-116 ───
+[maintainability · low] Dead-code branch: the regex `([0-9]+(?:\.[0-9]+)?(?:e-?[0-9]+)?)` always
+captures a string starting with a digit, so `p.startswith("e-")` is never true and the `float("1e" +
+p[1:])` fallback is unreachable. Simplify to `min(float(p) for p in p_matches)`. (Conversely, if a
+bare `e-8`-style value were possible, this would mis-parse it; but as written the leading-digit
+requirement makes the special case dead code.)
+
+
+
+─── evidence_pubmed_connector.py:177-180 ───
+[maintainability · low] The `fc` variable is computed (with a try/except) but never used afterward —
+the builder row uses `log2fc=fc_str` directly. This is dead code that gives the misleading
+impression the value was validated/parsed. Either use the parsed `fc` in the row, or drop the block.
+
+
+
+─── mom_validator.py:372-372 ───
+[maintainability · medium] The `days` parameter is declared but never used inside `stats()`. The
+method neither filters the query by the requested time window nor uses it anywhere, so callers
+passing `days=7` (or any other value) get identical results. Either implement the time-window
+filtering or remove the misleading parameter.
+
+
+
+─── mom_validator.py:372-374 ───
+[bug · medium] SQLite connections are opened and closed manually without a `with` block or
+try/finally. In `stats()` (and similarly in `log_verification()`/`_ensure_db()`), if any `execute()`
+call raises, the connection is never closed, leaking a resource. Given `mom` is a module-level
+singleton used by the AIXClaw workflow (not just a one-shot CLI), prefer a context manager (e.g.,
+`sqlite3.connect(MOM_LOG)` with `conn` via `with` or a try/finally), so the connection is reliably
+released on both the success and error paths.
+
+      def stats(self, days=7):
+          conn = sqlite3.connect(MOM_LOG)
++         try:
+          total = conn.execute("SELECT COUNT(*) FROM mom_log").fetchone()[0]
+
+
+─── mom_validator.py:245-245 ───
+[bug · low] The `pressure_ratio` formula `avg / (1.0 + spread) - 0.5` can return negative values
+(e.g., avg=0.5 with even a small spread yields < 0), and for avg=0.5, spread=0 it is clamped to 0.0.
+A metric that flips between 0 and negative for the same mid-range consensus is confusing and could
+mislead downstream callers (the `entropy` block in `complete_verification` surfaces this value
+directly). If this is meant to measure "compressed entropy", document the intended bounds (e.g.,
+clamp to [0,1]) or rescale the formula so the output is monotonic and non-negative across the valid
+avg range.
+
+
+
+─── mom_validator.py:536-538 ───
+[maintainability · low] `datetime` and `timezone` are already imported at module scope (line 13) and
+used elsewhere in the file via the module-level `datetime`/`timezone`. This local re-import inside
+the function is redundant and can mask the module-level names if later edited. Drop the local import
+and reuse the module-level symbols.
+
+-     from datetime import datetime, timezone
+      return {
+          "risk_level": risk_level,
+
+
+─── chembl_connector.py:31-31 ───
+[bug · high] ACVR2B is mapped to Q13705, which is actually ACVR2A's UniProt accession. ACVR2B's real
+UniProt ID is P27037. This will cause target_id_by_uniprot to resolve to the ACVR2A ChEMBL target
+for all ACVR2B queries, producing wrong mechanism/activity data. Suggest correcting to P27037.
+
+- "ACVR2B": "Q13705",  # ChEMBL 中二者指向同一 UniProt
++ "ACVR2B": "P27037",
+
+
+─── chembl_connector.py:280-280 ───
+[bug · high] get_mechanisms stores max_phase from `m.get("max_phase_for_ind", 0)`, which returns
+`None` when the API returns a JSON `null` for this field (the 0 default only applies when the key is
+missing). Here `max()` over a generator whose items can be `None` raises a TypeError when comparing
+`None` with ints. Same risk applies in to_evidence_rows at `m.get("max_phase", 0) >= 2` (`None >= 2`
+crashes). Guard against None: filter/coerce values before computing the max.
+
+- max_phase = max((m["max_phase"] for m in mechanisms), default=0)
++ max_phase = max((m["max_phase"] or 0 for m in mechanisms), default=0)
+
+
+─── chembl_connector.py:129-129 ───
+[bug · medium] ChEMBL's page_meta['next'] is returned as a relative path (e.g.
+'/chembl/api/data/...'), not an absolute URL. Assigning it directly to `url` and passing to _request
+will make urllib.request attempt to resolve it against localhost, failing subsequent page fetches.
+Prepend the API_BASE origin (or use urllib.parse.urljoin against the base host) when the returned
+URL is relative.
+
+-             url = next_url
++             url = urllib.parse.urljoin("https://www.ebi.ac.uk", next_url)
+
+
+─── chembl_connector.py:73-73 ───
+[maintainability · low] POTENCY_BANDS is defined at module level but never referenced anywhere in
+the file. Dead code that can be removed to avoid confusion.
+
+
+
+─── chembl_connector.py:91-91 ───
+[security · medium] ssl._create_unverified_context() disables TLS certificate verification for all
+HTTPS requests to the ChEMBL API. This leaves the connector vulnerable to man-in-the-middle attacks
+where a malicious proxy could substitute target/activity data. Since this is a fixed, well-known
+public host, use the default verified SSL context (drop the custom context) rather than disabling
+certificate validation.
+
+
+
+─── target_evidence_matrix.py:1418-1421 ───
+[bug · critical] `score` is referenced before it is assigned. The expression `safety_penalty =
+max(0.0, score - m.safety_ceiling)` runs when `m.safety_ceiling is not None`, but `score` is only
+computed on the following line. This raises `NameError: name 'score' is not defined` whenever a
+safety ceiling is set (which is the common path since any safety/SAE row triggers a ceiling).
+Reorder the computation so `score` is defined before `safety_penalty` is derived from it.
+
+
+
+─── target_evidence_matrix.py:762-767 ───
+[maintainability · medium] The `compute_interpretability` method is defined three times
+consecutively with identical bodies. Only the last definition survives; the duplicates are
+dead/redundant. Keep a single definition and delete the other two copies.
+
+
+
+─── target_evidence_matrix.py:883-885 ───
+[bug · medium] The `_check_cross_contradictions` method references `_parent_matrix` and
+`_parent_contradictions` attributes on `EvidenceRow`, but neither is ever defined. As a result,
+`getattr(rows1[0], '_parent_matrix', None)` always returns `None` and the `already` guard is
+meaningless, so cross-dimension contradictions are silently never appended.
+
+
+
+─── target_evidence_matrix.py:1105-1105 ───
+[bug · medium] `p_value.lower().replace("e", "e")` is a no-op (replaces 'e' with itself), so the
+string is passed unchanged to `float(...)`. This happens to work because Python's `float()` already
+parses scientific notation such as '2.3e-8'. Remove the misleading `.replace()`. More importantly,
+values given as plain decimals (e.g. '0.00000002') fall through to `strength =
+EvidenceStrength.UNKNOWN` even though they are highly significant, because only inputs containing
+'e-' are parsed as p-values.
+
+
+
+─── target_evidence_matrix.py:943-947 ───
+[bug · medium] `detect_missing()` unconditionally appends missing-evidence entries every time it is
+called and does not dedup against the existing `self.missing_evidence`. Since `build()` calls
+`detect_missing()` unconditionally, invoking `build()` more than once produces duplicate
+`MissingEvidence` entries that inflate `missing_count` and the missing penalty in scoring. Guard
+each append against already-present dimensions.
+
+
+
+
+──────── Project Summary ────────
+
+### Top Issues
+
+1. **Unhandled network and parsing failures in `evidence_pubmed_connector.py`** — The PubMed adapter makes bare `urllib.request.urlopen` calls with no exception handling for `URLError`, `HTTPError`, socket timeouts, or malformed XML from NCBI. Since this connector is the data source for the entire build pipeline, any transient NCBI glitch aborts the whole build with an uncaught exception.
+
+2. **Incorrect safety ceiling logic in `target_evidence_matrix.py`** — The `SafetyContraindication` check sets `m.safety_ceiling = 0.20`, but the subsequent `has_safety_dim` block unconditionally overwrites it with `0.80` whenever any SAFETY-dimension row exists. Severe SAE/animal-model rows therefore never lower the ceiling, defeating the intended safety gating.
+
+3. **NameError in safety penalty computation (`target_evidence_matrix.py`)** — `safety_penalty = max(0.0, score - m.safety_ceiling)` references `score` before it is assigned on the next line. Any target with a safety ceiling hits `NameError` at runtime, silently breaking the scoring pipeline.
+
+4. **Wrong UniProt mapping for ACVR2B (`chembl_connector.py`)** — ACVR2B is mapped to Q13705 (ACVR2A) instead of P27037, so all ACVR2B queries resolve to the wrong ChEMBL target and produce incorrect mechanism/activity data.
+
+5. **Fabricated direction claims in `evidence_pubmed_connector.py`** — When no direction keyword matches, `EvidenceDirection.UNKNOWN` is silently converted to `"up"`, inventing an upregulation claim from evidence that says nothing about direction. This propagates misleading rows into the evidence graph.
+
+6. **Cross-contradiction guard is dead code (`target_evidence_matrix.py`)** — `_check_cross_contradictions` reads `_parent_matrix`/`_parent_contradictions` from `EvidenceRow`, but those attributes are never set. The `already` dedup guard always returns `None`, so cross-contradictions are never detected or reported.
+
+7. **Pagination broken in `chembl_connector.py`** — ChEMBL returns `next` as a relative path (e.g. `/chembl/api/data/...`). Assigning it directly to `url` makes `urllib.request` resolve against localhost, so multi-page fetches fail after the first page.
+
+8. **`max_phase` can be `None` (`chembl_connector.py`)** — `get_mechanisms` defaults `max_phase_for_ind` to `0` for missing keys, but ChEMBL returns JSON `null` for present keys. `max()` over a generator containing `None` raises `TypeError` for any mechanism with a null phase.
+
+### Module Hotspots
+
+- **`target_evidence_matrix.py`** — 9 comments, including class-definition errors (missing `@dataclass`), duplicated method definitions, dead cross-contradiction logic, and a `NameError`. Highest severity and density.
+- **`chembl_connector.py`** — 5 comments mixing data-corruption bugs (wrong UniProt ID), network/type failures, and TLS verification disabled globally.
+- **`evidence_pubmed_connector.py`** — 5 comments focused on error handling and data integrity (fabricated direction, dead code).
+- **`mom_validator.py`** — 4 comments: SQLite connection leaks, unused `days` parameter, and a confusing pressure metric formula.
+
+### Cross-Cutting Concerns
+
+- **Unhandled external I/O failures** — Both `evidence_pubmed_connector.py` and `chembl_connector.py` call network/parsing code without try/except. NCBI or ChEMBL downtime or malformed responses crash the pipeline. Representative: `evidence_pubmed_connector.py` (`urlopen`), `chembl_connector.py` (`_request` pagination).
+- **Silent data corruption** — Multiple places fabricate or misrepresent data: UNKNOWN direction forced to "up" (`evidence_pubmed_connector.py`), wrong UniProt mapping (`chembl_connector.py`), safety ceiling overwritten (`target_evidence_matrix.py`). These produce wrong outputs without any warning.
+- **Dead/duplicated code** — `POTENCY_BANDS` unused (`chembl_connector.py`), `fc` parsed but unused (`evidence_pubmed_connector.py`), `compute_interpretability` defined 3× (`target_evidence_matrix.py`), no-op `.replace("e","e")`. Indicates incomplete refactoring.
+- **Resource leaks** — `mom_validator.py` opens SQLite connections without `with`/`finally`; exceptions leak connections in a module-level singleton.
+- **Misleading defaults** — `chembl_connector.py` `max_phase` `0` default vs `None`, `mom_validator.py` unused `days` parameter. Callers assume behavior that isn't implemented.
+
+### Quick Wins
+
+- Add `@dataclass` decorator to `SafetyContraindication` (`target_evidence_matrix.py`) so `asdict()` works.
+- Move `score` assignment before the `safety_penalty` line in `target_evidence_matrix.py`.
+- Correct `ACVR2B` mapping from Q13705 to P27037 in `chembl_connector.py`.
+- Prepend the ChEMBL API base URL to `page_meta['next']` before assigning to `url` in `chembl_connector.py`.
+- Delete the two duplicate `compute_interpretability` definitions in `target_evidence_matrix.py`.
+- Remove the unreachable `p.startswith("e-")` branch in `evidence_pubmed_connector.py` and use `min(float(p) for p in p_matches)`.
+- Wrap the URL fetches in `evidence_pubmed_connector.py` with a retry loop catching `URLError`/`HTTPError`/`socket.timeout`, and guard `ET.fromstring` with a `ParseError` catch.
+- Handle `None` in the `max_phase` generator in `chembl_connector.py` by filtering out `None` items.
+EXIT=0

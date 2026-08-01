@@ -530,6 +530,7 @@ class ReasoningStep:
         return f"<ReasoningStep #{self.step_id} [{self.step_type}] conf={self.confidence:.3f}>"
 
 
+@dataclass
 class SafetyContraindication:
     """
     安全反指征标记 (第七维)。
@@ -758,20 +759,6 @@ class TargetEvidenceMatrix:
             "contradictions": contradiction_details,
             "missing": missing_details,
         }
-
-    def compute_interpretability(self) -> float:
-        """计算整体可解释性评分。"""
-        if not self.rows:
-            return 0.0
-        scores = [(r.explainability.to_score() if r.explainability else 0.5) for r in self.rows]
-        return sum(scores) / len(scores)
-
-    def compute_interpretability(self) -> float:
-        """计算整体可解释性评分。"""
-        if not self.rows:
-            return 0.0
-        scores = [(r.explainability.to_score() if r.explainability else 0.5) for r in self.rows]
-        return sum(scores) / len(scores)
 
     def compute_interpretability(self) -> float:
         """计算整体可解释性评分。"""
@@ -1404,7 +1391,8 @@ class EvidenceMatrixBuilder:
             elif any(r.safety_severity == SafetySeverity.MODERATE_AE for r in m.rows):
                 m.safety_ceiling = 0.50
             has_safety_dim = any(r.dimension == EvidenceDimension.SAFETY for r in m.rows)
-            if has_safety_dim:
+            # 已由 SAE/严重AE 设置的更严格上限优先，未被覆盖
+            if has_safety_dim and m.safety_ceiling is None:
                 m.safety_ceiling = 0.80
 
             # 一致性惩罚
@@ -1413,12 +1401,15 @@ class EvidenceMatrixBuilder:
             # 缺失惩罚
             missing_penalty = len(m.missing_evidence) * 0.05
 
+            # 基础分数（不含安全惩罚）
+            base_score = (coverage * 0.3 + strength_ratio * 0.4) - contradiction_penalty - missing_penalty
+
             # 安全上限惩罚
             safety_penalty = 0.0
             if m.safety_ceiling is not None:
-                safety_penalty = max(0.0, score - m.safety_ceiling)
-            
-            score = (coverage * 0.3 + strength_ratio * 0.4) - contradiction_penalty - missing_penalty - safety_penalty
+                safety_penalty = max(0.0, base_score - m.safety_ceiling)
+
+            score = base_score - safety_penalty
             m.overall_confidence = max(0.0, min(1.0, round(score, 2)))
             
             if m.overall_confidence >= 0.7:
